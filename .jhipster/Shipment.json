@@ -1,0 +1,65 @@
+{
+    "name": "Shipment",
+    "fields": [
+        {
+            "fieldName": "shipmentCode",
+            "javadoc": "A unique shipment code or reference",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateShipped",
+            "javadoc": "The date the Shipment was dispatched",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateReceived",
+            "javadoc": "The date the sample was received by the destination",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shipmentComponent",
+            "otherEntityRelationshipName": "shipment",
+            "javadoc": "The components of this shipment",
+            "relationshipName": "components"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "laboratory",
+            "otherEntityRelationshipName": "shipment",
+            "relationshipValidateRules": "required",
+            "javadoc": "The destination lab for the shipment",
+            "relationshipName": "destination",
+            "otherEntityField": "laboratoryName"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "clinicalStudy",
+            "otherEntityRelationshipName": "shipments",
+            "relationshipValidateRules": "required",
+            "javadoc": "The study to which this shipment belongs",
+            "relationshipName": "study",
+            "otherEntityField": "studyIdentifier"
+        }
+    ],
+    "changelogDate": "20191008203852",
+    "javadoc": "A sample shipment from a Study",
+    "entityTableName": "shipment",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

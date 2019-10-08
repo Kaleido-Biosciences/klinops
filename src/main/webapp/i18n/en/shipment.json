@@ -1,0 +1,32 @@
+{
+  "klinopsApp": {
+    "shipment": {
+      "home": {
+        "title": "Shipments",
+        "createLabel": "Create a new Shipment",
+        "createOrEditLabel": "Create or edit a Shipment",
+        "notFound": "No Shipments found"
+      },
+      "created": "A new Shipment is created with identifier {{ param }}",
+      "updated": "A Shipment is updated with identifier {{ param }}",
+      "deleted": "A Shipment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shipment {{ id }}?"
+      },
+      "detail": {
+        "title": "Shipment"
+      },
+      "shipmentCode": "Shipment Code",
+      "dateShipped": "Date Shipped",
+      "dateReceived": "Date Received",
+      "components": "Components",
+      "destination": "Destination",
+      "study": "Study",
+      "help": {
+        "shipmentCode": "A unique shipment code or reference",
+        "dateShipped": "The date the Shipment was dispatched",
+        "dateReceived": "The date the sample was received by the destination"
+      }
+    }
+  }
+}

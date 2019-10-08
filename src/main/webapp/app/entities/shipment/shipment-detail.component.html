@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="shipment">
+            <h2><span jhiTranslate="klinopsApp.shipment.detail.title">Shipment</span> {{shipment.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.shipment.shipmentCode" [ngbTooltip]="'klinopsApp.shipment.help.shipmentCode' | translate">Shipment Code</span></dt>
+                <dd>
+                    <span>{{shipment.shipmentCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.shipment.dateShipped" [ngbTooltip]="'klinopsApp.shipment.help.dateShipped' | translate">Date Shipped</span></dt>
+                <dd>
+                    <span>{{shipment.dateShipped}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.shipment.dateReceived" [ngbTooltip]="'klinopsApp.shipment.help.dateReceived' | translate">Date Received</span></dt>
+                <dd>
+                    <span>{{shipment.dateReceived}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.shipment.destination">Destination</span></dt>
+                <dd>
+                    <div *ngIf="shipment.destination">
+                        <a [routerLink]="['/laboratory', shipment.destination?.id, 'view']">{{shipment.destination?.laboratoryName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.shipment.study">Study</span></dt>
+                <dd>
+                    <div *ngIf="shipment.study">
+                        <a [routerLink]="['/clinical-study', shipment.study?.id, 'view']">{{shipment.study?.studyIdentifier}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/shipment', shipment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

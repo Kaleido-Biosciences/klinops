@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="ko-trial-master-file-heading" jhiTranslate="klinopsApp.trialMasterFile.home.createOrEditLabel">Create or edit a Trial Master File</h2>
+            <div>
+                <ko-alert-error></ko-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.trialMasterFile.fileName" for="field_fileName" [ngbTooltip]="'klinopsApp.trialMasterFile.help.fileName' | translate">File Name</label>
+                    <input type="text" class="form-control" name="fileName" id="field_fileName"
+                           formControlName="fileName"/>
+                    <div *ngIf="editForm.get('fileName').invalid && (editForm.get('fileName').dirty || editForm.get('fileName').touched)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.trialMasterFile.location" for="field_location" [ngbTooltip]="'klinopsApp.trialMasterFile.help.location' | translate">Location</label>
+                    <input type="text" class="form-control" name="location" id="field_location"
+                           formControlName="location"/>
+                    <div *ngIf="editForm.get('location').invalid && (editForm.get('location').dirty || editForm.get('location').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('location').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.trialMasterFile.status" for="field_status" [ngbTooltip]="'klinopsApp.trialMasterFile.help.status' | translate">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.trialMasterFile.electronic" for="field_electronic" [ngbTooltip]="'klinopsApp.trialMasterFile.help.electronic' | translate">Electronic</label>
+                    <input type="checkbox" class="form-control" name="electronic" id="field_electronic"
+                           formControlName="electronic"/>
+                    <div *ngIf="editForm.get('electronic').invalid && (editForm.get('electronic').dirty || editForm.get('electronic').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('electronic').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

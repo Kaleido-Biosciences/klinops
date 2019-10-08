@@ -1,0 +1,32 @@
+{
+  "klinopsApp": {
+    "studyProduct": {
+      "home": {
+        "title": "Study Products",
+        "createLabel": "Create a new Study Product",
+        "createOrEditLabel": "Create or edit a Study Product",
+        "notFound": "No Study Products found"
+      },
+      "created": "A new Study Product is created with identifier {{ param }}",
+      "updated": "A Study Product is updated with identifier {{ param }}",
+      "deleted": "A Study Product is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Study Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Study Product"
+      },
+      "productName": "Product Name",
+      "doseRange": "Dose Range",
+      "daysOfExposure": "Days Of Exposure",
+      "formulation": "Formulation",
+      "study": "Study",
+      "help": {
+        "productName": "The product name",
+        "doseRange": "The range of doses of the product in the study e.g 10g to 100g",
+        "daysOfExposure": "The number of days of exposure to the product",
+        "formulation": "The type of formulation of the product"
+      }
+    }
+  }
+}

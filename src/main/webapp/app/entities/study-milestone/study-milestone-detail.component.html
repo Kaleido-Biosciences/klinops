@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="studyMilestone">
+            <h2><span jhiTranslate="klinopsApp.studyMilestone.detail.title">Study Milestone</span> {{studyMilestone.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.studyMilestone.mileStoneName" [ngbTooltip]="'klinopsApp.studyMilestone.help.mileStoneName' | translate">Mile Stone Name</span></dt>
+                <dd>
+                    <span>{{studyMilestone.mileStoneName}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyMilestone.mileStoneType" [ngbTooltip]="'klinopsApp.studyMilestone.help.mileStoneType' | translate">Mile Stone Type</span></dt>
+                <dd>
+                    <span>{{studyMilestone.mileStoneType}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyMilestone.projectedCompletionDate" [ngbTooltip]="'klinopsApp.studyMilestone.help.projectedCompletionDate' | translate">Projected Completion Date</span></dt>
+                <dd>
+                    <span>{{studyMilestone.projectedCompletionDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyMilestone.actualCompletionDate" [ngbTooltip]="'klinopsApp.studyMilestone.help.actualCompletionDate' | translate">Actual Completion Date</span></dt>
+                <dd>
+                    <span>{{studyMilestone.actualCompletionDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyMilestone.study">Study</span></dt>
+                <dd>
+                    <div *ngIf="studyMilestone.study">
+                        <a [routerLink]="['/clinical-study', studyMilestone.study?.id, 'view']">{{studyMilestone.study?.studyIdentifier}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/study-milestone', studyMilestone.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

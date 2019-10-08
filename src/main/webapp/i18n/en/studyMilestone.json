@@ -1,0 +1,32 @@
+{
+  "klinopsApp": {
+    "studyMilestone": {
+      "home": {
+        "title": "Study Milestones",
+        "createLabel": "Create a new Study Milestone",
+        "createOrEditLabel": "Create or edit a Study Milestone",
+        "notFound": "No Study Milestones found"
+      },
+      "created": "A new Study Milestone is created with identifier {{ param }}",
+      "updated": "A Study Milestone is updated with identifier {{ param }}",
+      "deleted": "A Study Milestone is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Study Milestone {{ id }}?"
+      },
+      "detail": {
+        "title": "Study Milestone"
+      },
+      "mileStoneName": "Mile Stone Name",
+      "mileStoneType": "Mile Stone Type",
+      "projectedCompletionDate": "Projected Completion Date",
+      "actualCompletionDate": "Actual Completion Date",
+      "study": "Study",
+      "help": {
+        "mileStoneName": "The name of the milestone",
+        "mileStoneType": "The type or category of milestone",
+        "projectedCompletionDate": "When the milestone should be complete",
+        "actualCompletionDate": "When the milestone was completed"
+      }
+    }
+  }
+}

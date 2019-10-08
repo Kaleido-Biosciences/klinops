@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="ko-shipment-heading" jhiTranslate="klinopsApp.shipment.home.createOrEditLabel">Create or edit a Shipment</h2>
+            <div>
+                <ko-alert-error></ko-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.shipment.shipmentCode" for="field_shipmentCode" [ngbTooltip]="'klinopsApp.shipment.help.shipmentCode' | translate">Shipment Code</label>
+                    <input type="text" class="form-control" name="shipmentCode" id="field_shipmentCode"
+                           formControlName="shipmentCode"/>
+                    <div *ngIf="editForm.get('shipmentCode').invalid && (editForm.get('shipmentCode').dirty || editForm.get('shipmentCode').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('shipmentCode').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.shipment.dateShipped" for="field_dateShipped" [ngbTooltip]="'klinopsApp.shipment.help.dateShipped' | translate">Date Shipped</label>
+                    <div class="input-group">
+                        <input id="field_dateShipped" type="text" class="form-control" name="dateShipped" ngbDatepicker  #dateShippedDp="ngbDatepicker" formControlName="dateShipped"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateShippedDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateShipped').invalid && (editForm.get('dateShipped').dirty || editForm.get('dateShipped').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateShipped').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.shipment.dateReceived" for="field_dateReceived" [ngbTooltip]="'klinopsApp.shipment.help.dateReceived' | translate">Date Received</label>
+                    <div class="input-group">
+                        <input id="field_dateReceived" type="text" class="form-control" name="dateReceived" ngbDatepicker  #dateReceivedDp="ngbDatepicker" formControlName="dateReceived"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateReceivedDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.shipment.destination" for="field_destination">Destination</label>
+                    <select class="form-control" id="field_destination" name="destination" formControlName="destination">
+                        <option *ngIf="!editForm.get('destination').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="laboratoryOption.id === editForm.get('destination').value?.id ? editForm.get('destination').value : laboratoryOption" *ngFor="let laboratoryOption of laboratories; trackBy: trackLaboratoryById">{{laboratoryOption.laboratoryName}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('destination').invalid && (editForm.get('destination').dirty || editForm.get('destination').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('destination').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.shipment.study" for="field_study">Study</label>
+                    <select class="form-control" id="field_study" name="study" formControlName="study">
+                        <option *ngIf="!editForm.get('study').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="clinicalStudyOption.id === editForm.get('study').value?.id ? editForm.get('study').value : clinicalStudyOption" *ngFor="let clinicalStudyOption of clinicalstudies; trackBy: trackClinicalStudyById">{{clinicalStudyOption.studyIdentifier}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('study').invalid && (editForm.get('study').dirty || editForm.get('study').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('study').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

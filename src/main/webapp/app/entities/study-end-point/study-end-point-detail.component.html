@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="studyEndPoint">
+            <h2><span jhiTranslate="klinopsApp.studyEndPoint.detail.title">Study End Point</span> {{studyEndPoint.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.studyEndPoint.description" [ngbTooltip]="'klinopsApp.studyEndPoint.help.description' | translate">Description</span></dt>
+                <dd>
+                    <span>{{studyEndPoint.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyEndPoint.objective" [ngbTooltip]="'klinopsApp.studyEndPoint.help.objective' | translate">Objective</span></dt>
+                <dd>
+                    <span>{{studyEndPoint.objective}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyEndPoint.endPointType" [ngbTooltip]="'klinopsApp.studyEndPoint.help.endPointType' | translate">End Point Type</span></dt>
+                <dd>
+                    <span>{{studyEndPoint.endPointType}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyEndPoint.study">Study</span></dt>
+                <dd>
+                    <div *ngIf="studyEndPoint.study">
+                        <a [routerLink]="['/clinical-study', studyEndPoint.study?.id, 'view']">{{studyEndPoint.study?.studyIdentifier}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/study-end-point', studyEndPoint.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

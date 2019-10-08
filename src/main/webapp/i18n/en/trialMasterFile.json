@@ -1,0 +1,32 @@
+{
+  "klinopsApp": {
+    "trialMasterFile": {
+      "home": {
+        "title": "Trial Master Files",
+        "createLabel": "Create a new Trial Master File",
+        "createOrEditLabel": "Create or edit a Trial Master File",
+        "notFound": "No Trial Master Files found"
+      },
+      "created": "A new Trial Master File is created with identifier {{ param }}",
+      "updated": "A Trial Master File is updated with identifier {{ param }}",
+      "deleted": "A Trial Master File is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Trial Master File {{ id }}?"
+      },
+      "detail": {
+        "title": "Trial Master File"
+      },
+      "fileName": "File Name",
+      "location": "Location",
+      "status": "Status",
+      "electronic": "Electronic",
+      "clinicalStudy": "Clinical Study",
+      "help": {
+        "fileName": "The unique id or name of the file",
+        "location": "The physical or electronic location of the master file",
+        "status": "The status of the master file",
+        "electronic": "Is the master file electronic"
+      }
+    }
+  }
+}

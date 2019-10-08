@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="ko-principal-investigator-heading" jhiTranslate="klinopsApp.principalInvestigator.home.createOrEditLabel">Create or edit a Principal Investigator</h2>
+            <div>
+                <ko-alert-error></ko-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.principalInvestigator.investigatorName" for="field_investigatorName" [ngbTooltip]="'klinopsApp.principalInvestigator.help.investigatorName' | translate">Investigator Name</label>
+                    <input type="text" class="form-control" name="investigatorName" id="field_investigatorName"
+                           formControlName="investigatorName"/>
+                    <div *ngIf="editForm.get('investigatorName').invalid && (editForm.get('investigatorName').dirty || editForm.get('investigatorName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('investigatorName').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.principalInvestigator.streetAddress" for="field_streetAddress" [ngbTooltip]="'klinopsApp.principalInvestigator.help.streetAddress' | translate">Street Address</label>
+                    <input type="text" class="form-control" name="streetAddress" id="field_streetAddress"
+                           formControlName="streetAddress"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.principalInvestigator.city" for="field_city" [ngbTooltip]="'klinopsApp.principalInvestigator.help.city' | translate">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                           formControlName="city"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.principalInvestigator.state" for="field_state" [ngbTooltip]="'klinopsApp.principalInvestigator.help.state' | translate">State</label>
+                    <input type="text" class="form-control" name="state" id="field_state"
+                           formControlName="state"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.principalInvestigator.zip" for="field_zip" [ngbTooltip]="'klinopsApp.principalInvestigator.help.zip' | translate">Zip</label>
+                    <input type="text" class="form-control" name="zip" id="field_zip"
+                           formControlName="zip"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.principalInvestigator.country" for="field_country" [ngbTooltip]="'klinopsApp.principalInvestigator.help.country' | translate">Country</label>
+                    <input type="text" class="form-control" name="country" id="field_country"
+                           formControlName="country"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.principalInvestigator.email" for="field_email" [ngbTooltip]="'klinopsApp.principalInvestigator.help.email' | translate">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                    <div *ngIf="editForm.get('email').invalid && (editForm.get('email').dirty || editForm.get('email').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('email').errors.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Email' }">
+                            This field should follow pattern for "Email".
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.principalInvestigator.phoneNumber" for="field_phoneNumber" [ngbTooltip]="'klinopsApp.principalInvestigator.help.phoneNumber' | translate">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                           formControlName="phoneNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.principalInvestigator.site" for="field_site">Site</label>
+                    <select class="form-control" id="field_site" name="site" formControlName="site">
+                        <option *ngIf="!editForm.get('site').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="siteOption.id === editForm.get('site').value?.id ? editForm.get('site').value : siteOption" *ngFor="let siteOption of sites; trackBy: trackSiteById">{{siteOption.siteName}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('site').invalid && (editForm.get('site').dirty || editForm.get('site').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('site').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

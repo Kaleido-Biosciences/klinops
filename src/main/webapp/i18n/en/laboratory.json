@@ -1,0 +1,41 @@
+{
+  "klinopsApp": {
+    "laboratory": {
+      "home": {
+        "title": "Laboratories",
+        "createLabel": "Create a new Laboratory",
+        "createOrEditLabel": "Create or edit a Laboratory",
+        "notFound": "No Laboratories found"
+      },
+      "created": "A new Laboratory is created with identifier {{ param }}",
+      "updated": "A Laboratory is updated with identifier {{ param }}",
+      "deleted": "A Laboratory is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Laboratory {{ id }}?"
+      },
+      "detail": {
+        "title": "Laboratory"
+      },
+      "labName": "Lab Name",
+      "streetAddress": "Street Address",
+      "city": "City",
+      "state": "State",
+      "zip": "Zip",
+      "country": "Country",
+      "labContactEmail": "Lab Contact Email",
+      "labContactName": "Lab Contact Name",
+      "labContactPhoneNumber": "Lab Contact Phone Number",
+      "help": {
+        "labName": "A unique lab name",
+        "streetAddress": "Street address for the lab",
+        "city": "City the lab is in",
+        "state": "State the lab is in",
+        "zip": "Zip Code the lab is in",
+        "country": "Country the lab is in",
+        "labContactEmail": "Email contact for the lab",
+        "labContactName": "Name of the main contact person at the lab",
+        "labContactPhoneNumber": "Contact phone number"
+      }
+    }
+  }
+}

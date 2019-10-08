@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dataAnalysis">
+            <h2><span jhiTranslate="klinopsApp.dataAnalysis.detail.title">Data Analysis</span> {{dataAnalysis.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.dataAnalysis.dataAnalysesType" [ngbTooltip]="'klinopsApp.dataAnalysis.help.dataAnalysesType' | translate">Data Analyses Type</span></dt>
+                <dd>
+                    <span>{{dataAnalysis.dataAnalysesType}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.dataAnalysis.contactName" [ngbTooltip]="'klinopsApp.dataAnalysis.help.contactName' | translate">Contact Name</span></dt>
+                <dd>
+                    <span>{{dataAnalysis.contactName}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.dataAnalysis.contactEmail" [ngbTooltip]="'klinopsApp.dataAnalysis.help.contactEmail' | translate">Contact Email</span></dt>
+                <dd>
+                    <span>{{dataAnalysis.contactEmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.dataAnalysis.anticipatedAnalysisDeliveryDate" [ngbTooltip]="'klinopsApp.dataAnalysis.help.anticipatedAnalysisDeliveryDate' | translate">Anticipated Analysis Delivery Date</span></dt>
+                <dd>
+                    <span>{{dataAnalysis.anticipatedAnalysisDeliveryDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.dataAnalysis.actualAnalysisDeliveryDate" [ngbTooltip]="'klinopsApp.dataAnalysis.help.actualAnalysisDeliveryDate' | translate">Actual Analysis Delivery Date</span></dt>
+                <dd>
+                    <span>{{dataAnalysis.actualAnalysisDeliveryDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.dataAnalysis.dataLocation" [ngbTooltip]="'klinopsApp.dataAnalysis.help.dataLocation' | translate">Data Location</span></dt>
+                <dd>
+                    <span>{{dataAnalysis.dataLocation}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.dataAnalysis.bioAnalyses">Bio Analyses</span></dt>
+                <dd>
+                    <span *ngFor="let bioAnalyses of dataAnalysis.bioAnalyses; let last = last">
+                        <a [routerLink]="['/bio-analysis', bioAnalyses?.id, 'view' ]">{{bioAnalyses.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.dataAnalysis.study">Study</span></dt>
+                <dd>
+                    <div *ngIf="dataAnalysis.study">
+                        <a [routerLink]="['/clinical-study', dataAnalysis.study?.id, 'view']">{{dataAnalysis.study?.studyIdentifier}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/data-analysis', dataAnalysis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

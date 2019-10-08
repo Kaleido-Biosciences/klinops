@@ -1,0 +1,37 @@
+{
+  "klinopsApp": {
+    "dataAnalysis": {
+      "home": {
+        "title": "Data Analyses",
+        "createLabel": "Create a new Data Analysis",
+        "createOrEditLabel": "Create or edit a Data Analysis",
+        "notFound": "No Data Analyses found"
+      },
+      "created": "A new Data Analysis is created with identifier {{ param }}",
+      "updated": "A Data Analysis is updated with identifier {{ param }}",
+      "deleted": "A Data Analysis is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Data Analysis {{ id }}?"
+      },
+      "detail": {
+        "title": "Data Analysis"
+      },
+      "dataAnalysesType": "Data Analyses Type",
+      "contactName": "Contact Name",
+      "contactEmail": "Contact Email",
+      "anticipatedAnalysisDeliveryDate": "Anticipated Analysis Delivery Date",
+      "actualAnalysisDeliveryDate": "Actual Analysis Delivery Date",
+      "dataLocation": "Data Location",
+      "bioAnalyses": "Bio Analyses",
+      "study": "Study",
+      "help": {
+        "dataAnalysesType": "The type or category of BioAnalysis",
+        "contactName": "Main contact for the analysis",
+        "contactEmail": "Contact email for the analysis",
+        "anticipatedAnalysisDeliveryDate": "Expected date for delivery of the analysis",
+        "actualAnalysisDeliveryDate": "Actual date of delivery of the analysis",
+        "dataLocation": "The location where the analysis is stored (e.g. URL)"
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="klinopsApp.bioAnalysis.home.title">Bio Analyses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bio-analysis" [routerLink]="['/bio-analysis/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="klinopsApp.bioAnalysis.home.createLabel">
+            Create a new Bio Analysis
+            </span>
+        </button>
+    </h2>
+    <ko-alert></ko-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="bioAnalyses?.length === 0">
+        <span jhiTranslate="klinopsApp.bioAnalysis.home.notFound">No bioAnalyses found</span>
+    </div>
+    <div class="table-responsive" *ngIf="bioAnalyses?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="analyte"><span jhiTranslate="klinopsApp.bioAnalysis.analyte">Analyte</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sampleType"><span jhiTranslate="klinopsApp.bioAnalysis.sampleType">Sample Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="bioAnalysisType"><span jhiTranslate="klinopsApp.bioAnalysis.bioAnalysisType">Bio Analysis Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="anticipatedLabWorkStartDate"><span jhiTranslate="klinopsApp.bioAnalysis.anticipatedLabWorkStartDate">Anticipated Lab Work Start Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="actualLabWorkStartDate"><span jhiTranslate="klinopsApp.bioAnalysis.actualLabWorkStartDate">Actual Lab Work Start Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="anticipatedLabResultDeliveryDate"><span jhiTranslate="klinopsApp.bioAnalysis.anticipatedLabResultDeliveryDate">Anticipated Lab Result Delivery Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="actualLabResultDeliveryDate"><span jhiTranslate="klinopsApp.bioAnalysis.actualLabResultDeliveryDate">Actual Lab Result Delivery Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataLocation"><span jhiTranslate="klinopsApp.bioAnalysis.dataLocation">Data Location</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactName"><span jhiTranslate="klinopsApp.bioAnalysis.contactName">Contact Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactEmail"><span jhiTranslate="klinopsApp.bioAnalysis.contactEmail">Contact Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="comments"><span jhiTranslate="klinopsApp.bioAnalysis.comments">Comments</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="studyEndPoint.description"><span jhiTranslate="klinopsApp.bioAnalysis.studyEndPoint">Study End Point</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="laboratories.labName"><span jhiTranslate="klinopsApp.bioAnalysis.laboratories">Laboratories</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="study.studyIdentifier"><span jhiTranslate="klinopsApp.bioAnalysis.study">Study</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let bioAnalysis of bioAnalyses ;trackBy: trackId">
+                <td><a [routerLink]="['/bio-analysis', bioAnalysis.id, 'view' ]">{{bioAnalysis.id}}</a></td>
+                <td>{{bioAnalysis.analyte}}</td>
+                <td>{{bioAnalysis.sampleType}}</td>
+                <td>{{bioAnalysis.bioAnalysisType}}</td>
+                <td>{{bioAnalysis.anticipatedLabWorkStartDate | date:'mediumDate'}}</td>
+                <td>{{bioAnalysis.actualLabWorkStartDate | date:'mediumDate'}}</td>
+                <td>{{bioAnalysis.anticipatedLabResultDeliveryDate | date:'mediumDate'}}</td>
+                <td>{{bioAnalysis.actualLabResultDeliveryDate | date:'mediumDate'}}</td>
+                <td>{{bioAnalysis.dataLocation}}</td>
+                <td>{{bioAnalysis.contactName}}</td>
+                <td>{{bioAnalysis.contactEmail}}</td>
+                <td>{{bioAnalysis.comments}}</td>
+                <td>
+                    <div *ngIf="bioAnalysis.studyEndPoint">
+                        <a [routerLink]="['/study-end-point', bioAnalysis.studyEndPoint?.id, 'view' ]" >{{bioAnalysis.studyEndPoint?.description}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="bioAnalysis.laboratories">
+                        <a [routerLink]="['/laboratory', bioAnalysis.laboratories?.id, 'view' ]" >{{bioAnalysis.laboratories?.labName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="bioAnalysis.study">
+                        <a [routerLink]="['/clinical-study', bioAnalysis.study?.id, 'view' ]" >{{bioAnalysis.study?.studyIdentifier}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/bio-analysis', bioAnalysis.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/bio-analysis', bioAnalysis.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/bio-analysis', { outlets: { popup: bioAnalysis.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="bioAnalyses?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

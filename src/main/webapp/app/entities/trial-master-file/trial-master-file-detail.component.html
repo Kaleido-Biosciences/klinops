@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="trialMasterFile">
+            <h2><span jhiTranslate="klinopsApp.trialMasterFile.detail.title">Trial Master File</span> {{trialMasterFile.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.trialMasterFile.fileName" [ngbTooltip]="'klinopsApp.trialMasterFile.help.fileName' | translate">File Name</span></dt>
+                <dd>
+                    <span>{{trialMasterFile.fileName}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.trialMasterFile.location" [ngbTooltip]="'klinopsApp.trialMasterFile.help.location' | translate">Location</span></dt>
+                <dd>
+                    <span>{{trialMasterFile.location}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.trialMasterFile.status" [ngbTooltip]="'klinopsApp.trialMasterFile.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span>{{trialMasterFile.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.trialMasterFile.electronic" [ngbTooltip]="'klinopsApp.trialMasterFile.help.electronic' | translate">Electronic</span></dt>
+                <dd>
+                    <span>{{trialMasterFile.electronic}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/trial-master-file', trialMasterFile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+{
+    "name": "StudyEndPoint",
+    "fields": [
+        {
+            "fieldName": "description",
+            "javadoc": "A description of the endpoint",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5000
+        },
+        {
+            "fieldName": "objective",
+            "javadoc": "The objective(s) of the endpoint",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5000
+        },
+        {
+            "fieldName": "endPointType",
+            "javadoc": "The type of endpoint",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "clinicalStudy",
+            "otherEntityRelationshipName": "endPoints",
+            "relationshipValidateRules": "required",
+            "javadoc": "The study for which this is an Endpoint",
+            "relationshipName": "study",
+            "otherEntityField": "studyIdentifier"
+        }
+    ],
+    "changelogDate": "20191008203846",
+    "javadoc": "An endpoint in a Study\\n@author Mark Schreiber",
+    "entityTableName": "study_end_point",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

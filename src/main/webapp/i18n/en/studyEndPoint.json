@@ -1,0 +1,30 @@
+{
+  "klinopsApp": {
+    "studyEndPoint": {
+      "home": {
+        "title": "Study End Points",
+        "createLabel": "Create a new Study End Point",
+        "createOrEditLabel": "Create or edit a Study End Point",
+        "notFound": "No Study End Points found"
+      },
+      "created": "A new Study End Point is created with identifier {{ param }}",
+      "updated": "A Study End Point is updated with identifier {{ param }}",
+      "deleted": "A Study End Point is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Study End Point {{ id }}?"
+      },
+      "detail": {
+        "title": "Study End Point"
+      },
+      "description": "Description",
+      "objective": "Objective",
+      "endPointType": "End Point Type",
+      "study": "Study",
+      "help": {
+        "description": "A description of the endpoint",
+        "objective": "The objective(s) of the endpoint",
+        "endPointType": "The type of endpoint"
+      }
+    }
+  }
+}

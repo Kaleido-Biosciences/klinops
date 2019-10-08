@@ -1,0 +1,46 @@
+{
+    "name": "ShipmentComponent",
+    "fields": [
+        {
+            "fieldName": "sampleType",
+            "javadoc": "The type or category of sample",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sampleCount",
+            "javadoc": "Number of samples of this type in the shipment",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 1
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "shipment",
+            "otherEntityRelationshipName": "components",
+            "relationshipValidateRules": "required",
+            "javadoc": "The shipment that this is a component of",
+            "relationshipName": "shipment",
+            "otherEntityField": "shipmentCode"
+        }
+    ],
+    "changelogDate": "20191008203857",
+    "javadoc": "A component of a shipment, the type and count of a sample",
+    "entityTableName": "shipment_component",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

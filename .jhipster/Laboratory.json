@@ -1,0 +1,82 @@
+{
+    "name": "Laboratory",
+    "fields": [
+        {
+            "fieldName": "labName",
+            "javadoc": "A unique lab name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "streetAddress",
+            "javadoc": "Street address for the lab",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "city",
+            "javadoc": "City the lab is in",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "state",
+            "javadoc": "State the lab is in",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "zip",
+            "javadoc": "Zip Code the lab is in",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "country",
+            "javadoc": "Country the lab is in",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "labContactEmail",
+            "javadoc": "Email contact for the lab",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^(.+)@(.+)|$"
+        },
+        {
+            "fieldName": "labContactName",
+            "javadoc": "Name of the main contact person at the lab",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "labContactPhoneNumber",
+            "javadoc": "Contact phone number",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191008203853",
+    "javadoc": "A Laboratory that processes samples",
+    "entityTableName": "laboratory",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

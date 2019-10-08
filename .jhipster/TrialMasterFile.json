@@ -1,0 +1,56 @@
+{
+    "name": "TrialMasterFile",
+    "fields": [
+        {
+            "fieldName": "fileName",
+            "javadoc": "The unique id or name of the file",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "location",
+            "javadoc": "The physical or electronic location of the master file",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "javadoc": "The status of the master file",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "electronic",
+            "javadoc": "Is the master file electronic",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "clinicalStudy",
+            "otherEntityRelationshipName": "masterFile",
+            "relationshipValidateRules": "required",
+            "relationshipName": "clinicalStudy",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191008203856",
+    "javadoc": "Information about the Trial Master File",
+    "entityTableName": "trial_master_file",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

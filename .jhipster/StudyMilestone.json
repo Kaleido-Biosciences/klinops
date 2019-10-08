@@ -1,0 +1,54 @@
+{
+    "name": "StudyMilestone",
+    "fields": [
+        {
+            "fieldName": "mileStoneName",
+            "javadoc": "The name of the milestone",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mileStoneType",
+            "javadoc": "The type or category of milestone",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "projectedCompletionDate",
+            "javadoc": "When the milestone should be complete",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualCompletionDate",
+            "javadoc": "When the milestone was completed",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "clinicalStudy",
+            "otherEntityRelationshipName": "mileStones",
+            "relationshipValidateRules": "required",
+            "javadoc": "The study for which this is a milestone",
+            "relationshipName": "study",
+            "otherEntityField": "studyIdentifier"
+        }
+    ],
+    "changelogDate": "20191008203849",
+    "javadoc": "A milestone of a study",
+    "entityTableName": "study_milestone",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

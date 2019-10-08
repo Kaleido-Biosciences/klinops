@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="klinopsApp.laboratory.home.title">Laboratories</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-laboratory" [routerLink]="['/laboratory/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="klinopsApp.laboratory.home.createLabel">
+            Create a new Laboratory
+            </span>
+        </button>
+    </h2>
+    <ko-alert></ko-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="laboratories?.length === 0">
+        <span jhiTranslate="klinopsApp.laboratory.home.notFound">No laboratories found</span>
+    </div>
+    <div class="table-responsive" *ngIf="laboratories?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="labName"><span jhiTranslate="klinopsApp.laboratory.labName">Lab Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="streetAddress"><span jhiTranslate="klinopsApp.laboratory.streetAddress">Street Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="city"><span jhiTranslate="klinopsApp.laboratory.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="state"><span jhiTranslate="klinopsApp.laboratory.state">State</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="zip"><span jhiTranslate="klinopsApp.laboratory.zip">Zip</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="country"><span jhiTranslate="klinopsApp.laboratory.country">Country</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="labContactEmail"><span jhiTranslate="klinopsApp.laboratory.labContactEmail">Lab Contact Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="labContactName"><span jhiTranslate="klinopsApp.laboratory.labContactName">Lab Contact Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="labContactPhoneNumber"><span jhiTranslate="klinopsApp.laboratory.labContactPhoneNumber">Lab Contact Phone Number</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let laboratory of laboratories ;trackBy: trackId">
+                <td><a [routerLink]="['/laboratory', laboratory.id, 'view' ]">{{laboratory.id}}</a></td>
+                <td>{{laboratory.labName}}</td>
+                <td>{{laboratory.streetAddress}}</td>
+                <td>{{laboratory.city}}</td>
+                <td>{{laboratory.state}}</td>
+                <td>{{laboratory.zip}}</td>
+                <td>{{laboratory.country}}</td>
+                <td>{{laboratory.labContactEmail}}</td>
+                <td>{{laboratory.labContactName}}</td>
+                <td>{{laboratory.labContactPhoneNumber}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/laboratory', laboratory.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/laboratory', laboratory.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/laboratory', { outlets: { popup: laboratory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="laboratories?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

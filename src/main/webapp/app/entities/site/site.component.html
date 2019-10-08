@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="klinopsApp.site.home.title">Sites</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-site" [routerLink]="['/site/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="klinopsApp.site.home.createLabel">
+            Create a new Site
+            </span>
+        </button>
+    </h2>
+    <ko-alert></ko-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="sites?.length === 0">
+        <span jhiTranslate="klinopsApp.site.home.notFound">No sites found</span>
+    </div>
+    <div class="table-responsive" *ngIf="sites?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="siteName"><span jhiTranslate="klinopsApp.site.siteName">Site Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="institution"><span jhiTranslate="klinopsApp.site.institution">Institution</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="streetAddress"><span jhiTranslate="klinopsApp.site.streetAddress">Street Address</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="city"><span jhiTranslate="klinopsApp.site.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="state"><span jhiTranslate="klinopsApp.site.state">State</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="zip"><span jhiTranslate="klinopsApp.site.zip">Zip</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="country"><span jhiTranslate="klinopsApp.site.country">Country</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let site of sites ;trackBy: trackId">
+                <td><a [routerLink]="['/site', site.id, 'view' ]">{{site.id}}</a></td>
+                <td>{{site.siteName}}</td>
+                <td>{{site.institution}}</td>
+                <td>{{site.streetAddress}}</td>
+                <td>{{site.city}}</td>
+                <td>{{site.state}}</td>
+                <td>{{site.zip}}</td>
+                <td>{{site.country}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/site', site.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/site', site.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/site', { outlets: { popup: site.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="sites?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

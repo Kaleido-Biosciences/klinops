@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="klinopsApp.dataAnalysis.home.title">Data Analyses</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-data-analysis" [routerLink]="['/data-analysis/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="klinopsApp.dataAnalysis.home.createLabel">
+            Create a new Data Analysis
+            </span>
+        </button>
+    </h2>
+    <ko-alert></ko-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="dataAnalyses?.length === 0">
+        <span jhiTranslate="klinopsApp.dataAnalysis.home.notFound">No dataAnalyses found</span>
+    </div>
+    <div class="table-responsive" *ngIf="dataAnalyses?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataAnalysesType"><span jhiTranslate="klinopsApp.dataAnalysis.dataAnalysesType">Data Analyses Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactName"><span jhiTranslate="klinopsApp.dataAnalysis.contactName">Contact Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactEmail"><span jhiTranslate="klinopsApp.dataAnalysis.contactEmail">Contact Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="anticipatedAnalysisDeliveryDate"><span jhiTranslate="klinopsApp.dataAnalysis.anticipatedAnalysisDeliveryDate">Anticipated Analysis Delivery Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="actualAnalysisDeliveryDate"><span jhiTranslate="klinopsApp.dataAnalysis.actualAnalysisDeliveryDate">Actual Analysis Delivery Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataLocation"><span jhiTranslate="klinopsApp.dataAnalysis.dataLocation">Data Location</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="study.studyIdentifier"><span jhiTranslate="klinopsApp.dataAnalysis.study">Study</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dataAnalysis of dataAnalyses ;trackBy: trackId">
+                <td><a [routerLink]="['/data-analysis', dataAnalysis.id, 'view' ]">{{dataAnalysis.id}}</a></td>
+                <td>{{dataAnalysis.dataAnalysesType}}</td>
+                <td>{{dataAnalysis.contactName}}</td>
+                <td>{{dataAnalysis.contactEmail}}</td>
+                <td>{{dataAnalysis.anticipatedAnalysisDeliveryDate | date:'mediumDate'}}</td>
+                <td>{{dataAnalysis.actualAnalysisDeliveryDate | date:'mediumDate'}}</td>
+                <td>{{dataAnalysis.dataLocation}}</td>
+                <td>
+                    <div *ngIf="dataAnalysis.study">
+                        <a [routerLink]="['/clinical-study', dataAnalysis.study?.id, 'view' ]" >{{dataAnalysis.study?.studyIdentifier}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/data-analysis', dataAnalysis.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/data-analysis', dataAnalysis.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/data-analysis', { outlets: { popup: dataAnalysis.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="dataAnalyses?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

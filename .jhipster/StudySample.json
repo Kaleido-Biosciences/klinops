@@ -1,0 +1,44 @@
+{
+    "name": "StudySample",
+    "fields": [
+        {
+            "fieldName": "sampleType",
+            "javadoc": "The type or category of the study sample",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "expectedNumberOfSamples",
+            "javadoc": "Expected number of samples",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "clinicalStudy",
+            "otherEntityRelationshipName": "studySamples",
+            "javadoc": "The study to which this study sample belongs",
+            "relationshipName": "study",
+            "otherEntityField": "studyIdentifier"
+        }
+    ],
+    "changelogDate": "20191008203851",
+    "javadoc": "Represents study patient sample",
+    "entityTableName": "study_sample",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

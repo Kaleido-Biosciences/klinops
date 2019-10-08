@@ -1,0 +1,49 @@
+{
+  "klinopsApp": {
+    "bioAnalysis": {
+      "home": {
+        "title": "Bio Analyses",
+        "createLabel": "Create a new Bio Analysis",
+        "createOrEditLabel": "Create or edit a Bio Analysis",
+        "notFound": "No Bio Analyses found"
+      },
+      "created": "A new Bio Analysis is created with identifier {{ param }}",
+      "updated": "A Bio Analysis is updated with identifier {{ param }}",
+      "deleted": "A Bio Analysis is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bio Analysis {{ id }}?"
+      },
+      "detail": {
+        "title": "Bio Analysis"
+      },
+      "analyte": "Analyte",
+      "sampleType": "Sample Type",
+      "bioAnalysisType": "Bio Analysis Type",
+      "anticipatedLabWorkStartDate": "Anticipated Lab Work Start Date",
+      "actualLabWorkStartDate": "Actual Lab Work Start Date",
+      "anticipatedLabResultDeliveryDate": "Anticipated Lab Result Delivery Date",
+      "actualLabResultDeliveryDate": "Actual Lab Result Delivery Date",
+      "dataLocation": "Data Location",
+      "contactName": "Contact Name",
+      "contactEmail": "Contact Email",
+      "comments": "Comments",
+      "studyEndPoint": "Study End Point",
+      "laboratories": "Laboratories",
+      "study": "Study",
+      "dataAnalyses": "Data Analyses",
+      "help": {
+        "analyte": "The analyte measure in this bioAnalyses",
+        "sampleType": "The type or category of biosample used in the analysis",
+        "bioAnalysisType": "The type or category of bioanalysis",
+        "anticipatedLabWorkStartDate": "Scheduled start date of the analysis",
+        "actualLabWorkStartDate": "Actual start date of the analysis",
+        "anticipatedLabResultDeliveryDate": "Scheduled delivery date for the analysis results",
+        "actualLabResultDeliveryDate": "Date results where delivered",
+        "dataLocation": "Location of the delivered data (e.g. URL)",
+        "contactName": "Contact name for the bioanalysis",
+        "contactEmail": "Contact email for the bioanalysis",
+        "comments": "Comments relevant to the bioanalysis"
+      }
+    }
+  }
+}

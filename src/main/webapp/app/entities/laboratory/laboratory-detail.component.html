@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="laboratory">
+            <h2><span jhiTranslate="klinopsApp.laboratory.detail.title">Laboratory</span> {{laboratory.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.laboratory.labName" [ngbTooltip]="'klinopsApp.laboratory.help.labName' | translate">Lab Name</span></dt>
+                <dd>
+                    <span>{{laboratory.labName}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.laboratory.streetAddress" [ngbTooltip]="'klinopsApp.laboratory.help.streetAddress' | translate">Street Address</span></dt>
+                <dd>
+                    <span>{{laboratory.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.laboratory.city" [ngbTooltip]="'klinopsApp.laboratory.help.city' | translate">City</span></dt>
+                <dd>
+                    <span>{{laboratory.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.laboratory.state" [ngbTooltip]="'klinopsApp.laboratory.help.state' | translate">State</span></dt>
+                <dd>
+                    <span>{{laboratory.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.laboratory.zip" [ngbTooltip]="'klinopsApp.laboratory.help.zip' | translate">Zip</span></dt>
+                <dd>
+                    <span>{{laboratory.zip}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.laboratory.country" [ngbTooltip]="'klinopsApp.laboratory.help.country' | translate">Country</span></dt>
+                <dd>
+                    <span>{{laboratory.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.laboratory.labContactEmail" [ngbTooltip]="'klinopsApp.laboratory.help.labContactEmail' | translate">Lab Contact Email</span></dt>
+                <dd>
+                    <span>{{laboratory.labContactEmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.laboratory.labContactName" [ngbTooltip]="'klinopsApp.laboratory.help.labContactName' | translate">Lab Contact Name</span></dt>
+                <dd>
+                    <span>{{laboratory.labContactName}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.laboratory.labContactPhoneNumber" [ngbTooltip]="'klinopsApp.laboratory.help.labContactPhoneNumber' | translate">Lab Contact Phone Number</span></dt>
+                <dd>
+                    <span>{{laboratory.labContactPhoneNumber}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/laboratory', laboratory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
