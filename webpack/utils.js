@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 const path = require('path');
 
 const tsconfig = require('../tsconfig.json');

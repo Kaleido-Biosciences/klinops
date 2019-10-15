@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.web.rest;
 
 import com.kaleido.klinops.KlinopsApp;
@@ -310,7 +314,7 @@ public class SiteResourceIT {
             .andExpect(jsonPath("$.[*].zip").value(hasItem(DEFAULT_ZIP.toString())))
             .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getSite() throws Exception {

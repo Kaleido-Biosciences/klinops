@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.domain;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

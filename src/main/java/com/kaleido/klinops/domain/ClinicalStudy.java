@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.domain;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +34,7 @@ public class ClinicalStudy implements Serializable {
     /**
      * The unique ID of the Study
      */
-    
+
     @ApiModelProperty(value = "The unique ID of the Study")
     @Column(name = "study_identifier", unique = true)
     private String studyIdentifier;

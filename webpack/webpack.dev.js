@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 const webpack = require('webpack');
 const writeFilePlugin = require('write-file-webpack-plugin');
 const webpackMerge = require('webpack-merge');

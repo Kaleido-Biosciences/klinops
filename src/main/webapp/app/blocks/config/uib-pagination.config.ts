@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { Injectable } from '@angular/core';
 import { NgbPaginationConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';

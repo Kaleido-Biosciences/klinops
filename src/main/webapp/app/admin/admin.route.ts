@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { Routes } from '@angular/router';
 
 import { auditsRoute } from './audits/audits.route';

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { SpyObject } from './spyobject';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 import Spy = jasmine.Spy;

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.web.rest;
 
 import com.kaleido.klinops.KlinopsApp;
@@ -224,7 +228,7 @@ public class ShipmentComponentResourceIT {
             .andExpect(jsonPath("$.[*].sampleType").value(hasItem(DEFAULT_SAMPLE_TYPE.toString())))
             .andExpect(jsonPath("$.[*].sampleCount").value(hasItem(DEFAULT_SAMPLE_COUNT)));
     }
-    
+
     @Test
     @Transactional
     public void getShipmentComponent() throws Exception {

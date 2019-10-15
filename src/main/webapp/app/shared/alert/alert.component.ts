@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { JhiAlertService } from 'ng-jhipster';
 

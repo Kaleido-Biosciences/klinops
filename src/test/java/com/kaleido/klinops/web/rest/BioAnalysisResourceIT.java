@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.web.rest;
 
 import com.kaleido.klinops.KlinopsApp;
@@ -313,7 +317,7 @@ public class BioAnalysisResourceIT {
             .andExpect(jsonPath("$.[*].contactEmail").value(hasItem(DEFAULT_CONTACT_EMAIL.toString())))
             .andExpect(jsonPath("$.[*].comments").value(hasItem(DEFAULT_COMMENTS.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getBioAnalysis() throws Exception {

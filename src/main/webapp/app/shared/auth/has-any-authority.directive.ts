@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { AccountService } from 'app/core/auth/account.service';
 

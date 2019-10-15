@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpyObject } from './spyobject';
 import { Observable, of } from 'rxjs';

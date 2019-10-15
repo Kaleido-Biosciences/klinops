@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { IPrincipalInvestigator } from 'app/shared/model/principal-investigator.model';
 
 export interface ISite {

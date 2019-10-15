@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { TestBed } from '@angular/core/testing';
 
 import { LogsService } from 'app/admin/logs/logs.service';

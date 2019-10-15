@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.web.rest;
 
 import com.kaleido.klinops.KlinopsApp;
@@ -256,7 +260,7 @@ public class ShipmentResourceIT {
             .andExpect(jsonPath("$.[*].dateShipped").value(hasItem(DEFAULT_DATE_SHIPPED.toString())))
             .andExpect(jsonPath("$.[*].dateReceived").value(hasItem(DEFAULT_DATE_RECEIVED.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getShipment() throws Exception {

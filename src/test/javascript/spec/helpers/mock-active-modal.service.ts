@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { SpyObject } from './spyobject';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import Spy = jasmine.Spy;

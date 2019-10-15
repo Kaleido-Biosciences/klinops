@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.web.rest;
 
 import com.kaleido.klinops.KlinopsApp;
@@ -249,7 +253,7 @@ public class DataAnalysisResourceIT {
             .andExpect(jsonPath("$.[*].actualAnalysisDeliveryDate").value(hasItem(DEFAULT_ACTUAL_ANALYSIS_DELIVERY_DATE.toString())))
             .andExpect(jsonPath("$.[*].dataLocation").value(hasItem(DEFAULT_DATA_LOCATION.toString())));
     }
-    
+
     @SuppressWarnings({"unchecked"})
     public void getAllDataAnalysesWithEagerRelationshipsIsEnabled() throws Exception {
         DataAnalysisResource dataAnalysisResource = new DataAnalysisResource(dataAnalysisServiceMock, dataAnalysisQueryService);

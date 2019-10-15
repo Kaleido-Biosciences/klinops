@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { SpyObject } from './spyobject';
 import { JhiAlertService, JhiAlert } from 'ng-jhipster';
 

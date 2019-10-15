@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { of } from 'rxjs';
 
 import { SpyObject } from './spyobject';

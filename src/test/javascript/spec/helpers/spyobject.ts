@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 export interface GuinessCompatibleSpy extends jasmine.Spy {
   /** By chaining the spy with and.returnValue, all calls to the function will return a specific
    * value. */

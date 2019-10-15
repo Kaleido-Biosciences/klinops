@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.service;
 
 import com.kaleido.klinops.domain.DataAnalysis;
@@ -58,7 +62,7 @@ public class DataAnalysisService {
     public Page<DataAnalysis> findAllWithEagerRelationships(Pageable pageable) {
         return dataAnalysisRepository.findAllWithEagerRelationships(pageable);
     }
-    
+
 
     /**
      * Get one dataAnalysis by id.

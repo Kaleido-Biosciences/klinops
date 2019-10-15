@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.web.rest;
 
 import com.kaleido.klinops.KlinopsApp;
@@ -362,7 +366,7 @@ public class ClinicalStudyResourceIT {
             .andExpect(jsonPath("$.[*].analysisRepresentative").value(hasItem(DEFAULT_ANALYSIS_REPRESENTATIVE.toString())))
             .andExpect(jsonPath("$.[*].dataManager").value(hasItem(DEFAULT_DATA_MANAGER.toString())));
     }
-    
+
     @SuppressWarnings({"unchecked"})
     public void getAllClinicalStudiesWithEagerRelationshipsIsEnabled() throws Exception {
         ClinicalStudyResource clinicalStudyResource = new ClinicalStudyResource(clinicalStudyServiceMock, clinicalStudyQueryService);

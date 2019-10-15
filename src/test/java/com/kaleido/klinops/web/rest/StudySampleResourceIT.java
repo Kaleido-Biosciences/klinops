@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.web.rest;
 
 import com.kaleido.klinops.KlinopsApp;
@@ -186,7 +190,7 @@ public class StudySampleResourceIT {
             .andExpect(jsonPath("$.[*].sampleType").value(hasItem(DEFAULT_SAMPLE_TYPE.toString())))
             .andExpect(jsonPath("$.[*].expectedNumberOfSamples").value(hasItem(DEFAULT_EXPECTED_NUMBER_OF_SAMPLES)));
     }
-    
+
     @Test
     @Transactional
     public void getStudySample() throws Exception {

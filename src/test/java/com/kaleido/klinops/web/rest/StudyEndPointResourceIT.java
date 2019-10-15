@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.web.rest;
 
 import com.kaleido.klinops.KlinopsApp;
@@ -248,7 +252,7 @@ public class StudyEndPointResourceIT {
             .andExpect(jsonPath("$.[*].objective").value(hasItem(DEFAULT_OBJECTIVE.toString())))
             .andExpect(jsonPath("$.[*].endPointType").value(hasItem(DEFAULT_END_POINT_TYPE.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getStudyEndPoint() throws Exception {

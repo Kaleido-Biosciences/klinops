@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.config;
 
 import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;

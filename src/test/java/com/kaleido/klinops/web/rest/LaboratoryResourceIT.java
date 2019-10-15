@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.web.rest;
 
 import com.kaleido.klinops.KlinopsApp;
@@ -305,7 +309,7 @@ public class LaboratoryResourceIT {
             .andExpect(jsonPath("$.[*].labContactName").value(hasItem(DEFAULT_LAB_CONTACT_NAME.toString())))
             .andExpect(jsonPath("$.[*].labContactPhoneNumber").value(hasItem(DEFAULT_LAB_CONTACT_PHONE_NUMBER.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getLaboratory() throws Exception {

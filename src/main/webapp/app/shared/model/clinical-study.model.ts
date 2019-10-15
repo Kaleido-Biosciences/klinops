@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { ITrialMasterFile } from 'app/shared/model/trial-master-file.model';
 import { IStudyEndPoint } from 'app/shared/model/study-end-point.model';
 import { IStudyProduct } from 'app/shared/model/study-product.model';

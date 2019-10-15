@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.web.rest;
 
 import com.kaleido.klinops.KlinopsApp;
@@ -238,7 +242,7 @@ public class StudyProductResourceIT {
             .andExpect(jsonPath("$.[*].daysOfExposure").value(hasItem(DEFAULT_DAYS_OF_EXPOSURE)))
             .andExpect(jsonPath("$.[*].formulation").value(hasItem(DEFAULT_FORMULATION.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getStudyProduct() throws Exception {

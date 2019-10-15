@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.config;
 
 import io.github.jhipster.config.JHipsterConstants;
@@ -16,7 +20,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class CloudDatabaseConfiguration extends AbstractCloudConfig {
 
     private final Logger log = LoggerFactory.getLogger(CloudDatabaseConfiguration.class);
-    
+
     private static final String CLOUD_CONFIGURATION_HIKARI_PREFIX = "spring.datasource.hikari";
 
     @Bean

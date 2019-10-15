@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavigationCancel, Router } from '@angular/router';
 

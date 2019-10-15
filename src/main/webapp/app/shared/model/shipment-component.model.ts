@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { IShipment } from 'app/shared/model/shipment.model';
 
 export interface IShipmentComponent {

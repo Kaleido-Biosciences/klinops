@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { Moment } from 'moment';
 import { IStudyEndPoint } from 'app/shared/model/study-end-point.model';
 import { ILaboratory } from 'app/shared/model/laboratory.model';

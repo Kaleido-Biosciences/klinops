@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.service;
 
 import com.kaleido.klinops.domain.ClinicalStudy;
@@ -58,7 +62,7 @@ public class ClinicalStudyService {
     public Page<ClinicalStudy> findAllWithEagerRelationships(Pageable pageable) {
         return clinicalStudyRepository.findAllWithEagerRelationships(pageable);
     }
-    
+
 
     /**
      * Get one clinicalStudy by id.

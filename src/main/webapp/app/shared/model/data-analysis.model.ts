@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { Moment } from 'moment';
 import { IBioAnalysis } from 'app/shared/model/bio-analysis.model';
 import { IClinicalStudy } from 'app/shared/model/clinical-study.model';

@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+  -->
+
 <databaseChangeLog
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -7,7 +11,7 @@
         Added the constraints for entity StudyEndPoint.
     -->
     <changeSet id="20191008203846-2" author="jhipster">
-        
+
         <addForeignKeyConstraint baseColumnNames="study_id"
                                  baseTableName="study_end_point"
                                  constraintName="fk_study_end_point_study_id"

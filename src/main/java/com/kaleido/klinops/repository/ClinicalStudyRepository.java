@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.repository;
 import com.kaleido.klinops.domain.ClinicalStudy;
 import org.springframework.data.domain.Page;

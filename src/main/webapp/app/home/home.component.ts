@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 import { LoginService } from 'app/core/login/login.service';

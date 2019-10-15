@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+  -->
+
 <!DOCTYPE configuration>
 
 <configuration scan="true">
@@ -32,7 +36,7 @@
     <logger name="javax.management.remote" level="WARN"/>
     <logger name="javax.xml.bind" level="WARN"/>
     <logger name="ch.qos.logback" level="WARN"/>
-    
+
     <logger name="com.ryantenney" level="WARN"/>
     <logger name="com.sun" level="WARN"/>
     <logger name="com.zaxxer" level="WARN"/>

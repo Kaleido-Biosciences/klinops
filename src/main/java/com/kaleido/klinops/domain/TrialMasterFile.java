@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
@@ -29,7 +33,7 @@ public class TrialMasterFile implements Serializable {
     /**
      * The unique id or name of the file
      */
-    
+
     @ApiModelProperty(value = "The unique id or name of the file")
     @Column(name = "file_name", unique = true)
     private String fileName;

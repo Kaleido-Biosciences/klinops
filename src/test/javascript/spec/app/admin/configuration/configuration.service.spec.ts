@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { TestBed } from '@angular/core/testing';
 
 import { KoConfigurationService } from 'app/admin/configuration/configuration.service';

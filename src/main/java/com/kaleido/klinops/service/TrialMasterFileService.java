@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.service;
 
 import com.kaleido.klinops.domain.TrialMasterFile;
@@ -59,7 +63,7 @@ public class TrialMasterFileService {
     *  Get all the trialMasterFiles where ClinicalStudy is {@code null}.
      *  @return the list of entities.
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public List<TrialMasterFile> findAllWhereClinicalStudyIsNull() {
         log.debug("Request to get all trialMasterFiles where ClinicalStudy is null");
         return StreamSupport

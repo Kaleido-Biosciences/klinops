@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { KlinopsSharedModule } from 'app/shared/shared.module';

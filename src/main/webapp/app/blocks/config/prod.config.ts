@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { enableProdMode } from '@angular/core';
 import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 

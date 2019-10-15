@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 package com.kaleido.klinops.security.oauth2;
 
 import com.kaleido.klinops.security.SecurityUtils;

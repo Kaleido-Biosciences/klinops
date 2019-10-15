@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2019. Kaleido Biosciences. All Rights Reserved.
+ */
+
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'findLanguageFromKey' })
