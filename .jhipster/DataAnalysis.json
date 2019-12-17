@@ -1,0 +1,74 @@
+{
+    "name": "DataAnalysis",
+    "fields": [
+        {
+            "fieldName": "dataAnalysesType",
+            "javadoc": "The type or category of BioAnalysis",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contactName",
+            "javadoc": "Main contact for the analysis",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactEmail",
+            "javadoc": "Contact email for the analysis",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^(.+)@(.+)|$"
+        },
+        {
+            "fieldName": "anticipatedAnalysisDeliveryDate",
+            "javadoc": "Expected date for delivery of the analysis",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualAnalysisDeliveryDate",
+            "javadoc": "Actual date of delivery of the analysis",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dataLocation",
+            "javadoc": "The location where the analysis is stored (e.g. URL)",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "bioAnalysis",
+            "otherEntityRelationshipName": "dataAnalyses",
+            "javadoc": "The bioAnalyses involved in this data analysis",
+            "relationshipName": "bioAnalyses",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "clinicalStudy",
+            "otherEntityRelationshipName": "dataAnalyses",
+            "relationshipValidateRules": "required",
+            "javadoc": "The study for which this analysis was done",
+            "relationshipName": "study",
+            "otherEntityField": "studyIdentifier"
+        }
+    ],
+    "changelogDate": "20191217214335",
+    "javadoc": "An analysis of data from a study",
+    "entityTableName": "data_analysis",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

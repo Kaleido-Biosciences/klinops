@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="shipmentComponent">
+            <h2><span jhiTranslate="klinopsApp.shipmentComponent.detail.title">Shipment Component</span> {{shipmentComponent.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.shipmentComponent.sampleType" [ngbTooltip]="'klinopsApp.shipmentComponent.help.sampleType' | translate">Sample Type</span></dt>
+                <dd>
+                    <span>{{shipmentComponent.sampleType}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.shipmentComponent.sampleCount" [ngbTooltip]="'klinopsApp.shipmentComponent.help.sampleCount' | translate">Sample Count</span></dt>
+                <dd>
+                    <span>{{shipmentComponent.sampleCount}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.shipmentComponent.shipment">Shipment</span></dt>
+                <dd>
+                    <div *ngIf="shipmentComponent.shipment">
+                        <a [routerLink]="['/shipment', shipmentComponent.shipment?.id, 'view']">{{shipmentComponent.shipment?.shipmentCode}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/shipment-component', shipmentComponent.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

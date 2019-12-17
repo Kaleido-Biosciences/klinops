@@ -1,0 +1,84 @@
+{
+    "name": "PrincipalInvestigator",
+    "fields": [
+        {
+            "fieldName": "investigatorName",
+            "javadoc": "Name of the PI",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "streetAddress",
+            "javadoc": "Street Address of the PI",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "javadoc": "City of the PI",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "javadoc": "State of the PI",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "zip",
+            "javadoc": "Zip Code of the PI",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "javadoc": "Country of the PI",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "javadoc": "Email address for the PI",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^(.+)@(.+)|$"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "javadoc": "Phone number of the PI",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "site",
+            "otherEntityRelationshipName": "investigators",
+            "relationshipValidateRules": "required",
+            "javadoc": "the site that the investigator was at for the study",
+            "relationshipName": "site",
+            "otherEntityField": "siteName"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "clinicalStudy",
+            "otherEntityRelationshipName": "investigators",
+            "javadoc": "Studies that the PI has worked on",
+            "relationshipName": "studies",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191217214328",
+    "javadoc": "An investigator on a study\\n@author Mark Schreiber",
+    "entityTableName": "principal_investigator",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

@@ -1,0 +1,29 @@
+{
+  "klinopsApp": {
+    "studySample": {
+      "home": {
+        "title": "Study Samples",
+        "createLabel": "Create a new Study Sample",
+        "createOrEditLabel": "Create or edit a Study Sample",
+        "search": "Search for Study Sample",
+        "notFound": "No Study Samples found"
+      },
+      "created": "A new Study Sample is created with identifier {{ param }}",
+      "updated": "A Study Sample is updated with identifier {{ param }}",
+      "deleted": "A Study Sample is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Study Sample {{ id }}?"
+      },
+      "detail": {
+        "title": "Study Sample"
+      },
+      "sampleType": "Sample Type",
+      "expectedNumberOfSamples": "Expected Number Of Samples",
+      "study": "Study",
+      "help": {
+        "sampleType": "The type or category of the study sample",
+        "expectedNumberOfSamples": "Expected number of samples"
+      }
+    }
+  }
+}

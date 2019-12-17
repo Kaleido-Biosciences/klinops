@@ -1,0 +1,370 @@
+application {
+  config {
+    baseName klinops
+    applicationType monolith
+    authenticationType oauth2
+    databaseType sql
+    devDatabaseType h2Memory
+    prodDatabaseType postgresql
+    buildTool maven
+    jhiPrefix ko
+    languages [en]
+    packageName com.kaleido.klinops
+    searchEngine elasticsearch
+  }
+  entities *
+}
+
+//
+// CLINICAL-OPERATIONS-DEFINITIONS
+//
+
+
+/**
+ * Represents a Clinical Study and holds metadata about the study
+ * @author Mark Schreiber
+ */
+entity ClinicalStudy {
+    /** The unique ID of the Study */
+    studyIdentifier String unique,
+
+    /** The phase of the study */
+    phase String,
+
+    /** The status of the study */
+    status String,
+
+	  /** Numbered Sequence of the Clinical Study */
+    sequence Integer,
+
+    /** The year of the Study*/
+    studyYear Integer min (1900),
+
+    /** The name of the study */
+    name String maxlength(500),
+
+    /** Description of the study design */
+    design String,
+
+	/** Number of Cohorts in the Study */
+    numberOfCohorts Integer min(0),
+
+	/** Number of subjects per cohort in the study design */
+    intendedSubjectsPerCohort Integer min(0),
+
+	/** The disease state of the study population */
+    populationDiseaseState String,
+
+	/** Minimum age for enrollment */
+    minimumAge Integer min(0),
+
+	/** Maximum age for enrollment */
+    maximumAge Integer min(0),
+
+	/** Number of subjects enrolled to date */
+    subjectsEnrolled Integer min(0),
+
+    /** Are females eligible for inclusion in the study */
+    femalesEligible Boolean,
+
+    /** Are males eligible for inclusion in the study */
+    malesEligible Boolean,
+
+    /** A short name for the study */
+    studyShortName String required maxlength(128),
+
+    /** The project manager of the trial */
+    projectManager String required,
+
+    /** The principal physician attached to the trial */
+    principalPhysician String,
+
+    /** The Research Representative of the trial */
+    researchRepresentative String,
+
+    /** The analysis (statistics or data scientist) Representative */
+    analysisRepresentative String,
+
+    /** The data manager assigned to the trial */
+    dataManager String
+}
+
+/**
+ * An endpoint in a Study
+ * @author Mark Schreiber
+ */
+entity StudyEndPoint {
+    /** A description of the endpoint */
+    description String required maxlength(5000),
+
+    /** The objective(s) of the endpoint */
+    objective String required maxlength(5000),
+
+    /** The type of endpoint */
+    endPointType String required
+}
+
+/**
+ * A Site where a study is carried out
+ * @author Mark Schreiber
+ */
+entity Site {
+    /** A universally unique ID for this object */
+    siteName String required unique,
+    /** The institution name */
+    institution String required,
+    /** The street address of the site */
+    streetAddress String required,
+    /** The city the site is in */
+    city String required,
+    /** The state that the site is in */
+    state String,
+    /** Zip Code the site is in */
+    zip String required,
+    /** The country that the site is in */
+    country String required
+}
+
+/**
+ * An investigator on a study
+ * @author Mark Schreiber
+ */
+entity PrincipalInvestigator{
+    /** Name of the PI */
+    investigatorName String required,
+    /** Street Address of the PI */
+    streetAddress String,
+    /** City of the PI */
+    city String,
+    /**  State of the PI */
+    state String,
+    /** Zip Code of the PI */
+    zip String,
+    /** Country of the PI */
+    country String,
+    /** Email address for the PI */
+    email String pattern(/^(.+)@(.+)|$/),
+    /** Phone number of the PI */
+    phoneNumber String
+}
+
+/** A milestone of a study */
+entity StudyMilestone {
+    /** The name of the milestone */
+    mileStoneName String required,
+    /** The type or category of milestone */
+    mileStoneType String required,
+    /** When the milestone should be complete */
+    projectedCompletionDate LocalDate,
+    /** When the milestone was completed */
+    actualCompletionDate LocalDate
+}
+
+/** A product administered in a study */
+entity StudyProduct {
+    /** The product name */
+    productName String required,
+    /** The range of doses of the product in the study e.g 10g to 100g */
+    doseRange String,
+    /** The number of days of exposure to the product */
+    daysOfExposure Integer min(0)
+    /** The type of formulation of the product */
+    formulation String required,
+}
+
+/** Represents study patient sample */
+entity StudySample {
+    /** The type or category of the study sample */
+    sampleType String required,
+    /** Expected number of samples */
+    expectedNumberOfSamples Integer min(0)
+}
+
+/** A sample shipment from a Study */
+entity Shipment {
+    /** A unique shipment code or reference */
+	shipmentCode String required,
+	/** The date the Shipment was dispatched */
+    dateShipped LocalDate required,
+    /** The date the sample was received by the destination */
+    dateReceived LocalDate
+}
+
+/** A Laboratory that processes samples */
+entity Laboratory {
+    /** A unique lab name */
+	labName String required,
+	/** Street address for the lab */
+    streetAddress String required,
+    /** City the lab is in */
+    city String required,
+    /** State the lab is in */
+    state String,
+    /** Zip Code the lab is in */
+    zip String required,
+    /** Country the lab is in */
+    country String required,
+    /** Email contact for the lab */
+    labContactEmail String pattern(/^(.+)@(.+)|$/),
+    /** Name of the main contact person at the lab */
+    labContactName String,
+    /** Contact phone number */
+    labContactPhoneNumber String
+}
+
+/** A BioAnalysis from a Study */
+entity BioAnalysis {
+    /** The analyte measure in this bioAnalyses */
+    analyte String required,
+    /** The type or category of biosample used in the analysis */
+    sampleType String required,
+    /** The type or category of bioanalysis */
+    bioAnalysisType String required,
+    /** Scheduled start date of the analysis */
+    anticipatedLabWorkStartDate LocalDate,
+    /** Actual start date of the analysis */
+    actualLabWorkStartDate LocalDate,
+    /** Scheduled delivery date for the analysis results */
+    anticipatedLabResultDeliveryDate LocalDate,
+    /** Date results where delivered */
+    actualLabResultDeliveryDate LocalDate,
+    /** Location of the delivered data (e.g. URL) */
+    dataLocation String,
+    /** Contact name for the bioanalysis */
+    contactName String,
+    /** Contact email for the bioanalysis */
+    contactEmail String pattern(/^(.+)@(.+)|$/),
+    /** Comments relevant to the bioanalysis */
+    comments String
+}
+
+/** An analysis of data from a study */
+entity DataAnalysis {
+    /** The type or category of BioAnalysis */
+    dataAnalysesType String required,
+    /** Main contact for the analysis */
+	contactName String,
+	/** Contact email for the analysis */
+    contactEmail String pattern(/^(.+)@(.+)|$/),
+    /** Expected date for delivery of the analysis */
+    anticipatedAnalysisDeliveryDate LocalDate,
+    /** Actual date of delivery of the analysis */
+    actualAnalysisDeliveryDate LocalDate,
+    /** The location where the analysis is stored (e.g. URL) */
+    dataLocation String
+}
+
+/** Information about the Trial Master File */
+entity TrialMasterFile {
+    /** The unique id or name of the file */
+    fileName String unique,
+    /** The physical or electronic location of the master file */
+    location String required,
+    /** The status of the master file */
+    status String,
+    /** Is the master file electronic */
+    electronic Boolean required
+}
+
+/** A component of a shipment, the type and count of a sample */
+entity ShipmentComponent {
+  /** The type or category of sample */
+  sampleType String required,
+
+	/** Number of samples of this type in the shipment */
+	sampleCount Integer required min(1)
+}
+
+relationship OneToOne {
+    /** The study master file */
+    ClinicalStudy{masterFile(name)}
+        to
+    TrialMasterFile{clinicalStudy(studyIdentifier) required}
+}
+
+relationship OneToMany {
+    /** The endpoints for a Study */
+    ClinicalStudy{endPoints}
+      to
+    /** The study for which this is an Endpoint */
+    StudyEndPoint{study(studyIdentifier) required},
+
+    /** The products studied */
+    ClinicalStudy{studiedProducts}
+      to
+    /** The study for which this is a product */
+    StudyProduct{study(studyIdentifier) required},
+
+    /** The milestones of the study */
+    ClinicalStudy{mileStones}
+      to
+    /** The study for which this is a milestone */
+    StudyMilestone{study(studyIdentifier) required},
+
+    /** The bio-analyses of this study */
+    ClinicalStudy{bioAnalyses}
+     to
+    /** The study for which this analysis was done */
+    BioAnalysis{study(studyIdentifier) required},
+
+    /** The data-analyses of this study */
+    ClinicalStudy{dataAnalyses}
+     to
+    /** The study for which this analysis was done */
+    DataAnalysis{study(studyIdentifier) required},
+
+    /** The components of this shipment */
+    Shipment{components}
+     to
+    /** The shipment that this is a component of */
+    ShipmentComponent{shipment(shipmentCode) required},
+
+    /** The shipments from this study */
+    ClinicalStudy{shipments}
+      to
+    /** The study to which this shipment belongs */
+    Shipment{study(studyIdentifier) required},
+
+    /** The study samples from this study */
+    ClinicalStudy{studySamples}
+      to
+    /** The study to which this study sample belongs */
+    StudySample{study(studyIdentifier)},
+
+    /** The investigators at this study site */
+    Site{investigators}
+      to
+    /** the site that the investigator was at for the study */
+    PrincipalInvestigator{site(siteName) required}
+}
+
+relationship ManyToOne {
+    /** The destination lab for the shipment */
+    Shipment{destination(laboratoryName) required} to Laboratory,
+
+    /** The Study End Point involved in the bioanalysis */
+    BioAnalysis{studyEndPoint(description)} to StudyEndPoint,
+
+    /** The laboratories involved in the bioanalysis */
+    BioAnalysis{laboratories(labName)} to Laboratory
+}
+
+relationship ManyToMany {
+    /**The investigators on the study */
+	ClinicalStudy{investigators(investigatorName)}
+	  to
+	/** Studies that the PI has worked on */
+	PrincipalInvestigator{studies},
+
+    /** The bioAnalyses involved in this data analysis */
+    DataAnalysis{bioAnalyses}
+      to
+    /** The data analyses that use this bioanalysis */
+    BioAnalysis{dataAnalyses}
+}
+
+
+//OTHER DIRECTIVES
+
+paginate all with pagination
+filter *

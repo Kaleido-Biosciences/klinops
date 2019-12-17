@@ -1,0 +1,146 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="ko-bio-analysis-heading" jhiTranslate="klinopsApp.bioAnalysis.home.createOrEditLabel">Create or edit a Bio Analysis</h2>
+            <div>
+                <ko-alert-error></ko-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.analyte" for="field_analyte" [ngbTooltip]="'klinopsApp.bioAnalysis.help.analyte' | translate">Analyte</label>
+                    <input type="text" class="form-control" name="analyte" id="field_analyte"
+                           formControlName="analyte"/>
+                    <div *ngIf="editForm.get('analyte').invalid && (editForm.get('analyte').dirty || editForm.get('analyte').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('analyte').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.sampleType" for="field_sampleType" [ngbTooltip]="'klinopsApp.bioAnalysis.help.sampleType' | translate">Sample Type</label>
+                    <input type="text" class="form-control" name="sampleType" id="field_sampleType"
+                           formControlName="sampleType"/>
+                    <div *ngIf="editForm.get('sampleType').invalid && (editForm.get('sampleType').dirty || editForm.get('sampleType').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sampleType').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.bioAnalysisType" for="field_bioAnalysisType" [ngbTooltip]="'klinopsApp.bioAnalysis.help.bioAnalysisType' | translate">Bio Analysis Type</label>
+                    <input type="text" class="form-control" name="bioAnalysisType" id="field_bioAnalysisType"
+                           formControlName="bioAnalysisType"/>
+                    <div *ngIf="editForm.get('bioAnalysisType').invalid && (editForm.get('bioAnalysisType').dirty || editForm.get('bioAnalysisType').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bioAnalysisType').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.anticipatedLabWorkStartDate" for="field_anticipatedLabWorkStartDate" [ngbTooltip]="'klinopsApp.bioAnalysis.help.anticipatedLabWorkStartDate' | translate">Anticipated Lab Work Start Date</label>
+                    <div class="input-group">
+                        <input id="field_anticipatedLabWorkStartDate" type="text" class="form-control" name="anticipatedLabWorkStartDate" ngbDatepicker  #anticipatedLabWorkStartDateDp="ngbDatepicker" formControlName="anticipatedLabWorkStartDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="anticipatedLabWorkStartDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.actualLabWorkStartDate" for="field_actualLabWorkStartDate" [ngbTooltip]="'klinopsApp.bioAnalysis.help.actualLabWorkStartDate' | translate">Actual Lab Work Start Date</label>
+                    <div class="input-group">
+                        <input id="field_actualLabWorkStartDate" type="text" class="form-control" name="actualLabWorkStartDate" ngbDatepicker  #actualLabWorkStartDateDp="ngbDatepicker" formControlName="actualLabWorkStartDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualLabWorkStartDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.anticipatedLabResultDeliveryDate" for="field_anticipatedLabResultDeliveryDate" [ngbTooltip]="'klinopsApp.bioAnalysis.help.anticipatedLabResultDeliveryDate' | translate">Anticipated Lab Result Delivery Date</label>
+                    <div class="input-group">
+                        <input id="field_anticipatedLabResultDeliveryDate" type="text" class="form-control" name="anticipatedLabResultDeliveryDate" ngbDatepicker  #anticipatedLabResultDeliveryDateDp="ngbDatepicker" formControlName="anticipatedLabResultDeliveryDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="anticipatedLabResultDeliveryDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.actualLabResultDeliveryDate" for="field_actualLabResultDeliveryDate" [ngbTooltip]="'klinopsApp.bioAnalysis.help.actualLabResultDeliveryDate' | translate">Actual Lab Result Delivery Date</label>
+                    <div class="input-group">
+                        <input id="field_actualLabResultDeliveryDate" type="text" class="form-control" name="actualLabResultDeliveryDate" ngbDatepicker  #actualLabResultDeliveryDateDp="ngbDatepicker" formControlName="actualLabResultDeliveryDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="actualLabResultDeliveryDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.dataLocation" for="field_dataLocation" [ngbTooltip]="'klinopsApp.bioAnalysis.help.dataLocation' | translate">Data Location</label>
+                    <input type="text" class="form-control" name="dataLocation" id="field_dataLocation"
+                           formControlName="dataLocation"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.contactName" for="field_contactName" [ngbTooltip]="'klinopsApp.bioAnalysis.help.contactName' | translate">Contact Name</label>
+                    <input type="text" class="form-control" name="contactName" id="field_contactName"
+                           formControlName="contactName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.contactEmail" for="field_contactEmail" [ngbTooltip]="'klinopsApp.bioAnalysis.help.contactEmail' | translate">Contact Email</label>
+                    <input type="text" class="form-control" name="contactEmail" id="field_contactEmail"
+                           formControlName="contactEmail"/>
+                    <div *ngIf="editForm.get('contactEmail').invalid && (editForm.get('contactEmail').dirty || editForm.get('contactEmail').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('contactEmail').errors.pattern" jhiTranslate="entity.validation.pattern" [translateValues]="{ pattern: 'Contact Email' }">
+                            This field should follow pattern for "Contact Email".
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.comments" for="field_comments" [ngbTooltip]="'klinopsApp.bioAnalysis.help.comments' | translate">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                           formControlName="comments"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.studyEndPoint" for="field_studyEndPoint">Study End Point</label>
+                    <select class="form-control" id="field_studyEndPoint" name="studyEndPoint" formControlName="studyEndPoint">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="studyEndPointOption.id === editForm.get('studyEndPoint').value?.id ? editForm.get('studyEndPoint').value : studyEndPointOption" *ngFor="let studyEndPointOption of studyendpoints; trackBy: trackStudyEndPointById">{{studyEndPointOption.description}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.laboratories" for="field_laboratories">Laboratories</label>
+                    <select class="form-control" id="field_laboratories" name="laboratories" formControlName="laboratories">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="laboratoryOption.id === editForm.get('laboratories').value?.id ? editForm.get('laboratories').value : laboratoryOption" *ngFor="let laboratoryOption of laboratories; trackBy: trackLaboratoryById">{{laboratoryOption.labName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.bioAnalysis.study" for="field_study">Study</label>
+                    <select class="form-control" id="field_study" name="study" formControlName="study">
+                        <option *ngIf="!editForm.get('study').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="clinicalStudyOption.id === editForm.get('study').value?.id ? editForm.get('study').value : clinicalStudyOption" *ngFor="let clinicalStudyOption of clinicalstudies; trackBy: trackClinicalStudyById">{{clinicalStudyOption.studyIdentifier}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('study').invalid && (editForm.get('study').dirty || editForm.get('study').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('study').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

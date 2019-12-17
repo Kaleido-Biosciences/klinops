@@ -1,0 +1,230 @@
+{
+    "name": "ClinicalStudy",
+    "fields": [
+        {
+            "fieldName": "studyIdentifier",
+            "javadoc": "The unique ID of the Study",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "phase",
+            "javadoc": "The phase of the study",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "javadoc": "The status of the study",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sequence",
+            "javadoc": "Numbered Sequence of the Clinical Study",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "studyYear",
+            "javadoc": "The year of the Study",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 1900
+        },
+        {
+            "fieldName": "name",
+            "javadoc": "The name of the study",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 500
+        },
+        {
+            "fieldName": "design",
+            "javadoc": "Description of the study design",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "numberOfCohorts",
+            "javadoc": "Number of Cohorts in the Study",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "intendedSubjectsPerCohort",
+            "javadoc": "Number of subjects per cohort in the study design",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "populationDiseaseState",
+            "javadoc": "The disease state of the study population",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "minimumAge",
+            "javadoc": "Minimum age for enrollment",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "maximumAge",
+            "javadoc": "Maximum age for enrollment",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "subjectsEnrolled",
+            "javadoc": "Number of subjects enrolled to date",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "femalesEligible",
+            "javadoc": "Are females eligible for inclusion in the study",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "malesEligible",
+            "javadoc": "Are males eligible for inclusion in the study",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "studyShortName",
+            "javadoc": "A short name for the study",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 128
+        },
+        {
+            "fieldName": "projectManager",
+            "javadoc": "The project manager of the trial",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "principalPhysician",
+            "javadoc": "The principal physician attached to the trial",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "researchRepresentative",
+            "javadoc": "The Research Representative of the trial",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "analysisRepresentative",
+            "javadoc": "The analysis (statistics or data scientist) Representative",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataManager",
+            "javadoc": "The data manager assigned to the trial",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "trialMasterFile",
+            "otherEntityRelationshipName": "clinicalStudy",
+            "javadoc": "The study master file",
+            "relationshipName": "masterFile",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "studyEndPoint",
+            "otherEntityRelationshipName": "study",
+            "javadoc": "The endpoints for a Study",
+            "relationshipName": "endPoints"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "studyProduct",
+            "otherEntityRelationshipName": "study",
+            "javadoc": "The products studied",
+            "relationshipName": "studiedProducts"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "studyMilestone",
+            "otherEntityRelationshipName": "study",
+            "javadoc": "The milestones of the study",
+            "relationshipName": "mileStones"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bioAnalysis",
+            "otherEntityRelationshipName": "study",
+            "javadoc": "The bio-analyses of this study",
+            "relationshipName": "bioAnalyses"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "dataAnalysis",
+            "otherEntityRelationshipName": "study",
+            "javadoc": "The data-analyses of this study",
+            "relationshipName": "dataAnalyses"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shipment",
+            "otherEntityRelationshipName": "study",
+            "javadoc": "The shipments from this study",
+            "relationshipName": "shipments"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "studySample",
+            "otherEntityRelationshipName": "study",
+            "javadoc": "The study samples from this study",
+            "relationshipName": "studySamples"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "principalInvestigator",
+            "otherEntityRelationshipName": "studies",
+            "javadoc": "The investigators on the study",
+            "relationshipName": "investigators",
+            "otherEntityField": "investigatorName",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191217214325",
+    "javadoc": "Represents a Clinical Study and holds metadata about the study\\n@author Mark Schreiber",
+    "entityTableName": "clinical_study",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

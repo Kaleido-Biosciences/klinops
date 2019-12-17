@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="principalInvestigator">
+            <h2><span jhiTranslate="klinopsApp.principalInvestigator.detail.title">Principal Investigator</span> {{principalInvestigator.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.principalInvestigator.investigatorName" [ngbTooltip]="'klinopsApp.principalInvestigator.help.investigatorName' | translate">Investigator Name</span></dt>
+                <dd>
+                    <span>{{principalInvestigator.investigatorName}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.principalInvestigator.streetAddress" [ngbTooltip]="'klinopsApp.principalInvestigator.help.streetAddress' | translate">Street Address</span></dt>
+                <dd>
+                    <span>{{principalInvestigator.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.principalInvestigator.city" [ngbTooltip]="'klinopsApp.principalInvestigator.help.city' | translate">City</span></dt>
+                <dd>
+                    <span>{{principalInvestigator.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.principalInvestigator.state" [ngbTooltip]="'klinopsApp.principalInvestigator.help.state' | translate">State</span></dt>
+                <dd>
+                    <span>{{principalInvestigator.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.principalInvestigator.zip" [ngbTooltip]="'klinopsApp.principalInvestigator.help.zip' | translate">Zip</span></dt>
+                <dd>
+                    <span>{{principalInvestigator.zip}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.principalInvestigator.country" [ngbTooltip]="'klinopsApp.principalInvestigator.help.country' | translate">Country</span></dt>
+                <dd>
+                    <span>{{principalInvestigator.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.principalInvestigator.email" [ngbTooltip]="'klinopsApp.principalInvestigator.help.email' | translate">Email</span></dt>
+                <dd>
+                    <span>{{principalInvestigator.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.principalInvestigator.phoneNumber" [ngbTooltip]="'klinopsApp.principalInvestigator.help.phoneNumber' | translate">Phone Number</span></dt>
+                <dd>
+                    <span>{{principalInvestigator.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.principalInvestigator.site">Site</span></dt>
+                <dd>
+                    <div *ngIf="principalInvestigator.site">
+                        <a [routerLink]="['/site', principalInvestigator.site?.id, 'view']">{{principalInvestigator.site?.siteName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/principal-investigator', principalInvestigator.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

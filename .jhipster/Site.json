@@ -1,0 +1,80 @@
+{
+    "name": "Site",
+    "fields": [
+        {
+            "fieldName": "siteName",
+            "javadoc": "A universally unique ID for this object",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "institution",
+            "javadoc": "The institution name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "streetAddress",
+            "javadoc": "The street address of the site",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "city",
+            "javadoc": "The city the site is in",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "state",
+            "javadoc": "The state that the site is in",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "zip",
+            "javadoc": "Zip Code the site is in",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "country",
+            "javadoc": "The country that the site is in",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "principalInvestigator",
+            "otherEntityRelationshipName": "site",
+            "javadoc": "The investigators at this study site",
+            "relationshipName": "investigators"
+        }
+    ],
+    "changelogDate": "20191217214327",
+    "javadoc": "A Site where a study is carried out\\n@author Mark Schreiber",
+    "entityTableName": "site",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

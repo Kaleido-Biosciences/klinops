@@ -1,0 +1,119 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="clinicalStudy">
+            <h2><span jhiTranslate="klinopsApp.clinicalStudy.detail.title">Clinical Study</span> {{clinicalStudy.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.studyIdentifier" [ngbTooltip]="'klinopsApp.clinicalStudy.help.studyIdentifier' | translate">Study Identifier</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.studyIdentifier}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.phase" [ngbTooltip]="'klinopsApp.clinicalStudy.help.phase' | translate">Phase</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.phase}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.status" [ngbTooltip]="'klinopsApp.clinicalStudy.help.status' | translate">Status</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.sequence" [ngbTooltip]="'klinopsApp.clinicalStudy.help.sequence' | translate">Sequence</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.sequence}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.studyYear" [ngbTooltip]="'klinopsApp.clinicalStudy.help.studyYear' | translate">Study Year</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.studyYear}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.name" [ngbTooltip]="'klinopsApp.clinicalStudy.help.name' | translate">Name</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.design" [ngbTooltip]="'klinopsApp.clinicalStudy.help.design' | translate">Design</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.design}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.numberOfCohorts" [ngbTooltip]="'klinopsApp.clinicalStudy.help.numberOfCohorts' | translate">Number Of Cohorts</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.numberOfCohorts}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.intendedSubjectsPerCohort" [ngbTooltip]="'klinopsApp.clinicalStudy.help.intendedSubjectsPerCohort' | translate">Intended Subjects Per Cohort</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.intendedSubjectsPerCohort}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.populationDiseaseState" [ngbTooltip]="'klinopsApp.clinicalStudy.help.populationDiseaseState' | translate">Population Disease State</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.populationDiseaseState}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.minimumAge" [ngbTooltip]="'klinopsApp.clinicalStudy.help.minimumAge' | translate">Minimum Age</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.minimumAge}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.maximumAge" [ngbTooltip]="'klinopsApp.clinicalStudy.help.maximumAge' | translate">Maximum Age</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.maximumAge}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.subjectsEnrolled" [ngbTooltip]="'klinopsApp.clinicalStudy.help.subjectsEnrolled' | translate">Subjects Enrolled</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.subjectsEnrolled}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.femalesEligible" [ngbTooltip]="'klinopsApp.clinicalStudy.help.femalesEligible' | translate">Females Eligible</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.femalesEligible}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.malesEligible" [ngbTooltip]="'klinopsApp.clinicalStudy.help.malesEligible' | translate">Males Eligible</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.malesEligible}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.studyShortName" [ngbTooltip]="'klinopsApp.clinicalStudy.help.studyShortName' | translate">Study Short Name</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.studyShortName}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.projectManager" [ngbTooltip]="'klinopsApp.clinicalStudy.help.projectManager' | translate">Project Manager</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.projectManager}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.principalPhysician" [ngbTooltip]="'klinopsApp.clinicalStudy.help.principalPhysician' | translate">Principal Physician</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.principalPhysician}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.researchRepresentative" [ngbTooltip]="'klinopsApp.clinicalStudy.help.researchRepresentative' | translate">Research Representative</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.researchRepresentative}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.analysisRepresentative" [ngbTooltip]="'klinopsApp.clinicalStudy.help.analysisRepresentative' | translate">Analysis Representative</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.analysisRepresentative}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.dataManager" [ngbTooltip]="'klinopsApp.clinicalStudy.help.dataManager' | translate">Data Manager</span></dt>
+                <dd>
+                    <span>{{clinicalStudy.dataManager}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.masterFile">Master File</span></dt>
+                <dd>
+                    <div *ngIf="clinicalStudy.masterFile">
+                        <a [routerLink]="['/trial-master-file', clinicalStudy.masterFile?.id, 'view']">{{clinicalStudy.masterFile?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.clinicalStudy.investigators">Investigators</span></dt>
+                <dd>
+                    <span *ngFor="let investigators of clinicalStudy.investigators; let last = last">
+                        <a [routerLink]="['/principal-investigator', investigators?.id, 'view' ]">{{investigators.investigatorName}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/clinical-study', clinicalStudy.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

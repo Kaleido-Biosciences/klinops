@@ -1,0 +1,58 @@
+{
+    "name": "StudyProduct",
+    "fields": [
+        {
+            "fieldName": "productName",
+            "javadoc": "The product name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "doseRange",
+            "javadoc": "The range of doses of the product in the study e.g 10g to 100g",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "daysOfExposure",
+            "javadoc": "The number of days of exposure to the product",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "formulation",
+            "javadoc": "The type of formulation of the product",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "clinicalStudy",
+            "otherEntityRelationshipName": "studiedProducts",
+            "relationshipValidateRules": "required",
+            "javadoc": "The study for which this is a product",
+            "relationshipName": "study",
+            "otherEntityField": "studyIdentifier"
+        }
+    ],
+    "changelogDate": "20191217214330",
+    "javadoc": "A product administered in a study",
+    "entityTableName": "study_product",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

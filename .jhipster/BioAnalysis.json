@@ -1,0 +1,121 @@
+{
+    "name": "BioAnalysis",
+    "fields": [
+        {
+            "fieldName": "analyte",
+            "javadoc": "The analyte measure in this bioAnalyses",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sampleType",
+            "javadoc": "The type or category of biosample used in the analysis",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "bioAnalysisType",
+            "javadoc": "The type or category of bioanalysis",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "anticipatedLabWorkStartDate",
+            "javadoc": "Scheduled start date of the analysis",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualLabWorkStartDate",
+            "javadoc": "Actual start date of the analysis",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "anticipatedLabResultDeliveryDate",
+            "javadoc": "Scheduled delivery date for the analysis results",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "actualLabResultDeliveryDate",
+            "javadoc": "Date results where delivered",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dataLocation",
+            "javadoc": "Location of the delivered data (e.g. URL)",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactName",
+            "javadoc": "Contact name for the bioanalysis",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactEmail",
+            "javadoc": "Contact email for the bioanalysis",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^(.+)@(.+)|$"
+        },
+        {
+            "fieldName": "comments",
+            "javadoc": "Comments relevant to the bioanalysis",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "studyEndPoint",
+            "otherEntityRelationshipName": "bioAnalysis",
+            "javadoc": "The Study End Point involved in the bioanalysis",
+            "relationshipName": "studyEndPoint",
+            "otherEntityField": "description"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "laboratory",
+            "otherEntityRelationshipName": "bioAnalysis",
+            "javadoc": "The laboratories involved in the bioanalysis",
+            "relationshipName": "laboratories",
+            "otherEntityField": "labName"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "clinicalStudy",
+            "otherEntityRelationshipName": "bioAnalyses",
+            "relationshipValidateRules": "required",
+            "javadoc": "The study for which this analysis was done",
+            "relationshipName": "study",
+            "otherEntityField": "studyIdentifier"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "dataAnalysis",
+            "otherEntityRelationshipName": "bioAnalyses",
+            "javadoc": "The data analyses that use this bioanalysis",
+            "relationshipName": "dataAnalyses",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191217214334",
+    "javadoc": "A BioAnalysis from a Study",
+    "entityTableName": "bio_analysis",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "klinops"
+    ]
+}

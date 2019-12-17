@@ -1,0 +1,126 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="klinopsApp.clinicalStudy.home.title">Clinical Studies</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-clinical-study" [routerLink]="['/clinical-study/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="klinopsApp.clinicalStudy.home.createLabel">
+            Create a new Clinical Study
+            </span>
+        </button>
+    </h2>
+    <ko-alert></ko-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'klinopsApp.clinicalStudy.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="clinicalStudies?.length === 0">
+        <span jhiTranslate="klinopsApp.clinicalStudy.home.notFound">No clinicalStudies found</span>
+    </div>
+    <div class="table-responsive" *ngIf="clinicalStudies?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="studyIdentifier"><span jhiTranslate="klinopsApp.clinicalStudy.studyIdentifier">Study Identifier</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phase"><span jhiTranslate="klinopsApp.clinicalStudy.phase">Phase</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span jhiTranslate="klinopsApp.clinicalStudy.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sequence"><span jhiTranslate="klinopsApp.clinicalStudy.sequence">Sequence</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="studyYear"><span jhiTranslate="klinopsApp.clinicalStudy.studyYear">Study Year</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="klinopsApp.clinicalStudy.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="design"><span jhiTranslate="klinopsApp.clinicalStudy.design">Design</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numberOfCohorts"><span jhiTranslate="klinopsApp.clinicalStudy.numberOfCohorts">Number Of Cohorts</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="intendedSubjectsPerCohort"><span jhiTranslate="klinopsApp.clinicalStudy.intendedSubjectsPerCohort">Intended Subjects Per Cohort</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="populationDiseaseState"><span jhiTranslate="klinopsApp.clinicalStudy.populationDiseaseState">Population Disease State</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="minimumAge"><span jhiTranslate="klinopsApp.clinicalStudy.minimumAge">Minimum Age</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maximumAge"><span jhiTranslate="klinopsApp.clinicalStudy.maximumAge">Maximum Age</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="subjectsEnrolled"><span jhiTranslate="klinopsApp.clinicalStudy.subjectsEnrolled">Subjects Enrolled</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="femalesEligible"><span jhiTranslate="klinopsApp.clinicalStudy.femalesEligible">Females Eligible</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="malesEligible"><span jhiTranslate="klinopsApp.clinicalStudy.malesEligible">Males Eligible</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="studyShortName"><span jhiTranslate="klinopsApp.clinicalStudy.studyShortName">Study Short Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="projectManager"><span jhiTranslate="klinopsApp.clinicalStudy.projectManager">Project Manager</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="principalPhysician"><span jhiTranslate="klinopsApp.clinicalStudy.principalPhysician">Principal Physician</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="researchRepresentative"><span jhiTranslate="klinopsApp.clinicalStudy.researchRepresentative">Research Representative</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="analysisRepresentative"><span jhiTranslate="klinopsApp.clinicalStudy.analysisRepresentative">Analysis Representative</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataManager"><span jhiTranslate="klinopsApp.clinicalStudy.dataManager">Data Manager</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="masterFile.name"><span jhiTranslate="klinopsApp.clinicalStudy.masterFile">Master File</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let clinicalStudy of clinicalStudies ;trackBy: trackId">
+                <td><a [routerLink]="['/clinical-study', clinicalStudy.id, 'view' ]">{{clinicalStudy.id}}</a></td>
+                <td>{{clinicalStudy.studyIdentifier}}</td>
+                <td>{{clinicalStudy.phase}}</td>
+                <td>{{clinicalStudy.status}}</td>
+                <td>{{clinicalStudy.sequence}}</td>
+                <td>{{clinicalStudy.studyYear}}</td>
+                <td>{{clinicalStudy.name}}</td>
+                <td>{{clinicalStudy.design}}</td>
+                <td>{{clinicalStudy.numberOfCohorts}}</td>
+                <td>{{clinicalStudy.intendedSubjectsPerCohort}}</td>
+                <td>{{clinicalStudy.populationDiseaseState}}</td>
+                <td>{{clinicalStudy.minimumAge}}</td>
+                <td>{{clinicalStudy.maximumAge}}</td>
+                <td>{{clinicalStudy.subjectsEnrolled}}</td>
+                <td>{{clinicalStudy.femalesEligible}}</td>
+                <td>{{clinicalStudy.malesEligible}}</td>
+                <td>{{clinicalStudy.studyShortName}}</td>
+                <td>{{clinicalStudy.projectManager}}</td>
+                <td>{{clinicalStudy.principalPhysician}}</td>
+                <td>{{clinicalStudy.researchRepresentative}}</td>
+                <td>{{clinicalStudy.analysisRepresentative}}</td>
+                <td>{{clinicalStudy.dataManager}}</td>
+                <td>
+                    <div *ngIf="clinicalStudy.masterFile">
+                        <a [routerLink]="['/trial-master-file', clinicalStudy.masterFile?.id, 'view' ]" >{{clinicalStudy.masterFile?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/clinical-study', clinicalStudy.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/clinical-study', clinicalStudy.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/clinical-study', { outlets: { popup: clinicalStudy.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="clinicalStudies?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

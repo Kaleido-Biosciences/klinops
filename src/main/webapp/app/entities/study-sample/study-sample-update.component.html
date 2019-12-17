@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="ko-study-sample-heading" jhiTranslate="klinopsApp.studySample.home.createOrEditLabel">Create or edit a Study Sample</h2>
+            <div>
+                <ko-alert-error></ko-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.studySample.sampleType" for="field_sampleType" [ngbTooltip]="'klinopsApp.studySample.help.sampleType' | translate">Sample Type</label>
+                    <input type="text" class="form-control" name="sampleType" id="field_sampleType"
+                           formControlName="sampleType"/>
+                    <div *ngIf="editForm.get('sampleType').invalid && (editForm.get('sampleType').dirty || editForm.get('sampleType').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sampleType').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.studySample.expectedNumberOfSamples" for="field_expectedNumberOfSamples" [ngbTooltip]="'klinopsApp.studySample.help.expectedNumberOfSamples' | translate">Expected Number Of Samples</label>
+                    <input type="number" class="form-control" name="expectedNumberOfSamples" id="field_expectedNumberOfSamples"
+                           formControlName="expectedNumberOfSamples"/>
+                    <div *ngIf="editForm.get('expectedNumberOfSamples').invalid && (editForm.get('expectedNumberOfSamples').dirty || editForm.get('expectedNumberOfSamples').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('expectedNumberOfSamples').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('expectedNumberOfSamples')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="klinopsApp.studySample.study" for="field_study">Study</label>
+                    <select class="form-control" id="field_study" name="study" formControlName="study">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clinicalStudyOption.id === editForm.get('study').value?.id ? editForm.get('study').value : clinicalStudyOption" *ngFor="let clinicalStudyOption of clinicalstudies; trackBy: trackClinicalStudyById">{{clinicalStudyOption.studyIdentifier}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

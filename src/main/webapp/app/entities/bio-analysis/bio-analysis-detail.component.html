@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bioAnalysis">
+            <h2><span jhiTranslate="klinopsApp.bioAnalysis.detail.title">Bio Analysis</span> {{bioAnalysis.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.analyte" [ngbTooltip]="'klinopsApp.bioAnalysis.help.analyte' | translate">Analyte</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.analyte}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.sampleType" [ngbTooltip]="'klinopsApp.bioAnalysis.help.sampleType' | translate">Sample Type</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.sampleType}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.bioAnalysisType" [ngbTooltip]="'klinopsApp.bioAnalysis.help.bioAnalysisType' | translate">Bio Analysis Type</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.bioAnalysisType}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.anticipatedLabWorkStartDate" [ngbTooltip]="'klinopsApp.bioAnalysis.help.anticipatedLabWorkStartDate' | translate">Anticipated Lab Work Start Date</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.anticipatedLabWorkStartDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.actualLabWorkStartDate" [ngbTooltip]="'klinopsApp.bioAnalysis.help.actualLabWorkStartDate' | translate">Actual Lab Work Start Date</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.actualLabWorkStartDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.anticipatedLabResultDeliveryDate" [ngbTooltip]="'klinopsApp.bioAnalysis.help.anticipatedLabResultDeliveryDate' | translate">Anticipated Lab Result Delivery Date</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.anticipatedLabResultDeliveryDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.actualLabResultDeliveryDate" [ngbTooltip]="'klinopsApp.bioAnalysis.help.actualLabResultDeliveryDate' | translate">Actual Lab Result Delivery Date</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.actualLabResultDeliveryDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.dataLocation" [ngbTooltip]="'klinopsApp.bioAnalysis.help.dataLocation' | translate">Data Location</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.dataLocation}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.contactName" [ngbTooltip]="'klinopsApp.bioAnalysis.help.contactName' | translate">Contact Name</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.contactName}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.contactEmail" [ngbTooltip]="'klinopsApp.bioAnalysis.help.contactEmail' | translate">Contact Email</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.contactEmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.comments" [ngbTooltip]="'klinopsApp.bioAnalysis.help.comments' | translate">Comments</span></dt>
+                <dd>
+                    <span>{{bioAnalysis.comments}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.studyEndPoint">Study End Point</span></dt>
+                <dd>
+                    <div *ngIf="bioAnalysis.studyEndPoint">
+                        <a [routerLink]="['/study-end-point', bioAnalysis.studyEndPoint?.id, 'view']">{{bioAnalysis.studyEndPoint?.description}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.laboratories">Laboratories</span></dt>
+                <dd>
+                    <div *ngIf="bioAnalysis.laboratories">
+                        <a [routerLink]="['/laboratory', bioAnalysis.laboratories?.id, 'view']">{{bioAnalysis.laboratories?.labName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.bioAnalysis.study">Study</span></dt>
+                <dd>
+                    <div *ngIf="bioAnalysis.study">
+                        <a [routerLink]="['/clinical-study', bioAnalysis.study?.id, 'view']">{{bioAnalysis.study?.studyIdentifier}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/bio-analysis', bioAnalysis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

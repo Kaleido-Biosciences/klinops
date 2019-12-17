@@ -1,0 +1,42 @@
+{
+  "klinopsApp": {
+    "principalInvestigator": {
+      "home": {
+        "title": "Principal Investigators",
+        "createLabel": "Create a new Principal Investigator",
+        "createOrEditLabel": "Create or edit a Principal Investigator",
+        "search": "Search for Principal Investigator",
+        "notFound": "No Principal Investigators found"
+      },
+      "created": "A new Principal Investigator is created with identifier {{ param }}",
+      "updated": "A Principal Investigator is updated with identifier {{ param }}",
+      "deleted": "A Principal Investigator is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Principal Investigator {{ id }}?"
+      },
+      "detail": {
+        "title": "Principal Investigator"
+      },
+      "investigatorName": "Investigator Name",
+      "streetAddress": "Street Address",
+      "city": "City",
+      "state": "State",
+      "zip": "Zip",
+      "country": "Country",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
+      "site": "Site",
+      "studies": "Studies",
+      "help": {
+        "investigatorName": "Name of the PI",
+        "streetAddress": "Street Address of the PI",
+        "city": "City of the PI",
+        "state": "State of the PI",
+        "zip": "Zip Code of the PI",
+        "country": "Country of the PI",
+        "email": "Email address for the PI",
+        "phoneNumber": "Phone number of the PI"
+      }
+    }
+  }
+}

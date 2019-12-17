@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="studySample">
+            <h2><span jhiTranslate="klinopsApp.studySample.detail.title">Study Sample</span> {{studySample.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.studySample.sampleType" [ngbTooltip]="'klinopsApp.studySample.help.sampleType' | translate">Sample Type</span></dt>
+                <dd>
+                    <span>{{studySample.sampleType}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studySample.expectedNumberOfSamples" [ngbTooltip]="'klinopsApp.studySample.help.expectedNumberOfSamples' | translate">Expected Number Of Samples</span></dt>
+                <dd>
+                    <span>{{studySample.expectedNumberOfSamples}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studySample.study">Study</span></dt>
+                <dd>
+                    <div *ngIf="studySample.study">
+                        <a [routerLink]="['/clinical-study', studySample.study?.id, 'view']">{{studySample.study?.studyIdentifier}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/study-sample', studySample.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

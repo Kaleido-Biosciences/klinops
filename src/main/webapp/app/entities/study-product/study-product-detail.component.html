@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="studyProduct">
+            <h2><span jhiTranslate="klinopsApp.studyProduct.detail.title">Study Product</span> {{studyProduct.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.studyProduct.productName" [ngbTooltip]="'klinopsApp.studyProduct.help.productName' | translate">Product Name</span></dt>
+                <dd>
+                    <span>{{studyProduct.productName}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyProduct.doseRange" [ngbTooltip]="'klinopsApp.studyProduct.help.doseRange' | translate">Dose Range</span></dt>
+                <dd>
+                    <span>{{studyProduct.doseRange}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyProduct.daysOfExposure" [ngbTooltip]="'klinopsApp.studyProduct.help.daysOfExposure' | translate">Days Of Exposure</span></dt>
+                <dd>
+                    <span>{{studyProduct.daysOfExposure}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyProduct.formulation" [ngbTooltip]="'klinopsApp.studyProduct.help.formulation' | translate">Formulation</span></dt>
+                <dd>
+                    <span>{{studyProduct.formulation}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.studyProduct.study">Study</span></dt>
+                <dd>
+                    <div *ngIf="studyProduct.study">
+                        <a [routerLink]="['/clinical-study', studyProduct.study?.id, 'view']">{{studyProduct.study?.studyIdentifier}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/study-product', studyProduct.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

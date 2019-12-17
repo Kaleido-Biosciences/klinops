@@ -1,0 +1,29 @@
+{
+  "klinopsApp": {
+    "shipmentComponent": {
+      "home": {
+        "title": "Shipment Components",
+        "createLabel": "Create a new Shipment Component",
+        "createOrEditLabel": "Create or edit a Shipment Component",
+        "search": "Search for Shipment Component",
+        "notFound": "No Shipment Components found"
+      },
+      "created": "A new Shipment Component is created with identifier {{ param }}",
+      "updated": "A Shipment Component is updated with identifier {{ param }}",
+      "deleted": "A Shipment Component is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Shipment Component {{ id }}?"
+      },
+      "detail": {
+        "title": "Shipment Component"
+      },
+      "sampleType": "Sample Type",
+      "sampleCount": "Sample Count",
+      "shipment": "Shipment",
+      "help": {
+        "sampleType": "The type or category of sample",
+        "sampleCount": "Number of samples of this type in the shipment"
+      }
+    }
+  }
+}

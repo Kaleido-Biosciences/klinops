@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="site">
+            <h2><span jhiTranslate="klinopsApp.site.detail.title">Site</span> {{site.id}}</h2>
+            <hr>
+            <ko-alert-error></ko-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="klinopsApp.site.siteName" [ngbTooltip]="'klinopsApp.site.help.siteName' | translate">Site Name</span></dt>
+                <dd>
+                    <span>{{site.siteName}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.site.institution" [ngbTooltip]="'klinopsApp.site.help.institution' | translate">Institution</span></dt>
+                <dd>
+                    <span>{{site.institution}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.site.streetAddress" [ngbTooltip]="'klinopsApp.site.help.streetAddress' | translate">Street Address</span></dt>
+                <dd>
+                    <span>{{site.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.site.city" [ngbTooltip]="'klinopsApp.site.help.city' | translate">City</span></dt>
+                <dd>
+                    <span>{{site.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.site.state" [ngbTooltip]="'klinopsApp.site.help.state' | translate">State</span></dt>
+                <dd>
+                    <span>{{site.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.site.zip" [ngbTooltip]="'klinopsApp.site.help.zip' | translate">Zip</span></dt>
+                <dd>
+                    <span>{{site.zip}}</span>
+                </dd>
+                <dt><span jhiTranslate="klinopsApp.site.country" [ngbTooltip]="'klinopsApp.site.help.country' | translate">Country</span></dt>
+                <dd>
+                    <span>{{site.country}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/site', site.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+{
+  "klinopsApp": {
+    "clinicalStudy": {
+      "home": {
+        "title": "Clinical Studies",
+        "createLabel": "Create a new Clinical Study",
+        "createOrEditLabel": "Create or edit a Clinical Study",
+        "search": "Search for Clinical Study",
+        "notFound": "No Clinical Studies found"
+      },
+      "created": "A new Clinical Study is created with identifier {{ param }}",
+      "updated": "A Clinical Study is updated with identifier {{ param }}",
+      "deleted": "A Clinical Study is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Clinical Study {{ id }}?"
+      },
+      "detail": {
+        "title": "Clinical Study"
+      },
+      "studyIdentifier": "Study Identifier",
+      "phase": "Phase",
+      "status": "Status",
+      "sequence": "Sequence",
+      "studyYear": "Study Year",
+      "name": "Name",
+      "design": "Design",
+      "numberOfCohorts": "Number Of Cohorts",
+      "intendedSubjectsPerCohort": "Intended Subjects Per Cohort",
+      "populationDiseaseState": "Population Disease State",
+      "minimumAge": "Minimum Age",
+      "maximumAge": "Maximum Age",
+      "subjectsEnrolled": "Subjects Enrolled",
+      "femalesEligible": "Females Eligible",
+      "malesEligible": "Males Eligible",
+      "studyShortName": "Study Short Name",
+      "projectManager": "Project Manager",
+      "principalPhysician": "Principal Physician",
+      "researchRepresentative": "Research Representative",
+      "analysisRepresentative": "Analysis Representative",
+      "dataManager": "Data Manager",
+      "masterFile": "Master File",
+      "endPoints": "End Points",
+      "studiedProducts": "Studied Products",
+      "mileStones": "Mile Stones",
+      "bioAnalyses": "Bio Analyses",
+      "dataAnalyses": "Data Analyses",
+      "shipments": "Shipments",
+      "studySamples": "Study Samples",
+      "investigators": "Investigators",
+      "help": {
+        "studyIdentifier": "The unique ID of the Study",
+        "phase": "The phase of the study",
+        "status": "The status of the study",
+        "sequence": "Numbered Sequence of the Clinical Study",
+        "studyYear": "The year of the Study",
+        "name": "The name of the study",
+        "design": "Description of the study design",
+        "numberOfCohorts": "Number of Cohorts in the Study",
+        "intendedSubjectsPerCohort": "Number of subjects per cohort in the study design",
+        "populationDiseaseState": "The disease state of the study population",
+        "minimumAge": "Minimum age for enrollment",
+        "maximumAge": "Maximum age for enrollment",
+        "subjectsEnrolled": "Number of subjects enrolled to date",
+        "femalesEligible": "Are females eligible for inclusion in the study",
+        "malesEligible": "Are males eligible for inclusion in the study",
+        "studyShortName": "A short name for the study",
+        "projectManager": "The project manager of the trial",
+        "principalPhysician": "The principal physician attached to the trial",
+        "researchRepresentative": "The Research Representative of the trial",
+        "analysisRepresentative": "The analysis (statistics or data scientist) Representative",
+        "dataManager": "The data manager assigned to the trial"
+      }
+    }
+  }
+}
